@@ -6,28 +6,28 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 public class BaseVo {
 
-	/** 不持久，数据库查询用 */
+	/** 涓嶆寔涔咃紝鏁版嵁搴撴煡璇㈢敤 */
 	@JsonIgnore
 	private boolean distinct;
-	/** 不持久，分页用 */
+	/** 涓嶆寔涔咃紝鍒嗛〉鐢�*/
 	@JsonIgnore
-	protected Integer page = 1; 	// 第几页,默认第一页
+	protected Integer page = 1; 	// 绗嚑椤�榛樿绗竴椤�
 	@JsonIgnore
-	protected Integer rows = 10;	// 每页显示的条数;默认每页显示10条数据
+	protected Integer rows = 10;	// 姣忛〉鏄剧ず鐨勬潯鏁�榛樿姣忛〉鏄剧ず10鏉℃暟鎹�
 	@JsonIgnore
-	protected Integer total;		// 数据总条数
+	protected Integer total;		// 鏁版嵁鎬绘潯鏁�
 	@JsonIgnore
-	protected Integer totalPage;	// 总页数
-	/** 不持久，数据库排序用 */
+	protected Integer totalPage;	// 鎬婚〉鏁�
+	/** 涓嶆寔涔咃紝鏁版嵁搴撴帓搴忕敤 */
 	@JsonIgnore
-	protected String sort;			// 需要排序的列
+	protected String sort;			// 闇�鎺掑簭鐨勫垪
 	@JsonIgnore
-	protected String order;			// 需要排序的规则
-	/** 不持久，数据库查询用 */
+	protected String order;			// 闇�鎺掑簭鐨勮鍒�
+	/** 涓嶆寔涔咃紝鏁版嵁搴撴煡璇㈢敤 */
 	@JsonIgnore
-	protected Date startDateTime;	// 起始时间
+	protected Date startDateTime;	// 璧峰鏃堕棿
 	@JsonIgnore
-	protected Date endDateTime;		// 结束时间
+	protected Date endDateTime;		// 缁撴潫鏃堕棿
 	
 	@JsonIgnore
 	public Integer getMax() {
