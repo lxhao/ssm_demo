@@ -14,7 +14,6 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
 	private UcategoryMapper categoryMapper;
 
-	@Override
 	public List<Ucategory> getAll() {
 		// TODO Auto-generated method stub
 		return categoryMapper.getAll();

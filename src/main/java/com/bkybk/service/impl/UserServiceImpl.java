@@ -50,12 +50,10 @@ public class UserServiceImpl implements UserServiceI {
 		return 0;
 	}
 
-	@Override
 	public User getUserById(int userId) {
 		return userMapper.selectByPrimaryKey(userId);
 	}
 
-	@Override
 	public int updateUser(User user) {
 		int userFlag = userMapper.updateByPrimaryKeySelective(user);
 		// 如果关系是一对一的话,只需要更新数据即可.
@@ -74,7 +72,6 @@ public class UserServiceImpl implements UserServiceI {
 		return 0;
 	}
 	
-	@Override
 	public int delUserById(int userId) {
 		UserCategory userCate = new UserCategory();
 		userCate.setUid(userId);
