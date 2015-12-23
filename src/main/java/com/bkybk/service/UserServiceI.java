@@ -16,6 +16,8 @@ public interface UserServiceI {
 	
 	public User getUserById(int userId);
 	
+	public User getUser(User user);
+	
 	public int updateUser(User user);
 	
 	public int delUserById(int userId);

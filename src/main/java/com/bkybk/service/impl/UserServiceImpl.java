@@ -37,9 +37,9 @@ public class UserServiceImpl implements UserServiceI {
 
 	public int save(User user) {
 		int userFlag = userMapper.insertSelective(user);
-		// 说明:
-		// 为了配合多种方式的查询,所以在这里想这张(User 和 Category 的关系)表中插入数据
-		// 如果直接使用user 的 categoryId去Category中联查,这不需要插入如下数据
+		// 璇存槑:
+		// 涓轰簡閰嶅悎澶氱鏂瑰紡鐨勬煡璇�鎵�互鍦ㄨ繖閲屾兂杩欏紶(User 鍜�Category 鐨勫叧绯�琛ㄤ腑鎻掑叆鏁版嵁
+		// 濡傛灉鐩存帴浣跨敤user 鐨�categoryId鍘籆ategory涓仈鏌�杩欎笉闇�鎻掑叆濡備笅鏁版嵁
 		UserCategory userCategory = new UserCategory();
 		userCategory.setUid(user.getId());
 		userCategory.setCid(user.getCategoryId());
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserServiceI {
 
 	public int updateUser(User user) {
 		int userFlag = userMapper.updateByPrimaryKeySelective(user);
-		// 如果关系是一对一的话,只需要更新数据即可.
+
 		UserCategory userCate = new UserCategory();
 		userCate.setUid(user.getId());
 		List<UserCategory> userCateList = userCategoryMapper.getUserCategoryList(userCate);
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserServiceI {
 		UserCategory userCate = new UserCategory();
 		userCate.setUid(userId);
 		List<UserCategory> userCateList = userCategoryMapper.getUserCategoryList(userCate);
-		// 开始删除关系
+		// 寮�鍒犻櫎鍏崇郴
 		for (int i = 0; i < userCateList.size(); i++) {
 			userCate = userCateList.get(0);
 			userCategoryMapper.deleteByPrimaryKey(userCate.getId());
@@ -94,6 +94,10 @@ public class UserServiceImpl implements UserServiceI {
 
 	public List<User> getUserList(User user) {
 		return userMapper.getAll6(user);
+	}
+	public User getUser(User user) {
+		// TODO Auto-generated method stub
+		return userMapper.selectByUser(user);
 	}
 
 }

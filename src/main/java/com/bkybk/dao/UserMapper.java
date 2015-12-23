@@ -19,6 +19,8 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
     
+    User selectByUser(User user);
+    
     List<User> getAll();
     
     List<User> getAll2();

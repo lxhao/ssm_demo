@@ -372,4 +372,11 @@
   	<include refid="Example_Where_Clause" />
   </select>
   
+  <select id="selectByUser" resultMap="BaseResultMap" parameterType="com.bkybk.model.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where Login_name = #{loginName,jdbcType=VARCHAR} and
+      password = #{password,jdbcType=VARCHAR}
+  </select>
 </mapper>
