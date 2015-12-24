@@ -1,13 +1,13 @@
 package com.bkybk.model;
 
-import com.sun.jmx.snmp.Timestamp;
+import java.util.Date;
 
 public class Content {
 	private Integer commentid;
 	private Integer userid;
 	private Integer articleid;
 	private String content;
-	private Timestamp cmttime;
+	private Date cmttime;
 	public Integer getCommentid() {
 		return commentid;
 	}
@@ -32,10 +32,10 @@ public class Content {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Timestamp getCmttime() {
+	public Date getCmttime() {
 		return cmttime;
 	}
-	public void setCmttime(Timestamp cmttime) {
+	public void setCmttime(Date cmttime) {
 		this.cmttime = cmttime;
 	}
 	
