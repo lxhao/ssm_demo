@@ -15,7 +15,7 @@
 		<table border="1">
 			<tr>
 				<td>用户名</td>
-				<td><input name="loginName"></td>
+				<td><input name="loginName" onblur="validatorLoginName"></td>
 			</tr>
 				<tr>
 				<td>密码</td>
@@ -30,7 +30,29 @@
 		</table>
 	
 	</form>
+	<script type="text/javascript">
+	function validatorLoginName(){
+		 var loginName=document.getElementById("loginName").value;
+		 if(loginName == "")
+		 {
+		 	alert("用户名不能为空!");
+		 	return;
+		 }
+		 $.ajax({
+		 		type: "POST",    
+		         url: "ValidateLoginName",    
+		          data: "loginName="+loginName, 
+		         success: function(data){
+			    if(data=="true"){   
+			     alert("恭喜您！用户名没有被使用！");  
+			   
+			    }else{   
+			     alert("抱歉！用户名已存在！");   
+		    	} 
+		  		}          
+		        });   
+		}		
 
-
+</script>
 </body>
 </html>
