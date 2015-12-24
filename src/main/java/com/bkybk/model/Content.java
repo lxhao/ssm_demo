@@ -1,6 +1,6 @@
 package com.bkybk.model;
 
-import java.security.Timestamp;
+import com.sun.jmx.snmp.Timestamp;
 
 public class Content {
 	private Integer commentid;
