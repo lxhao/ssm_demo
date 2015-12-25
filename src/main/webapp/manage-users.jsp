@@ -51,13 +51,13 @@
           </div>
         <nav class="templatemo-left-nav">          
           <ul>
-            <li><a href="index.html"><i class="fa fa-home fa-fw"></i>主页</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-bar-chart fa-fw"></i>图表</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-database fa-fw"></i>数据图表</a></li>
-            <li><a href="maps.html"><i class="fa fa-map-marker fa-fw"></i>地图</a></li>
+            <li><a href="index.jsp"><i class="fa fa-home fa-fw"></i>主页</a></li>
+            <li><a href="data-visualization.jsp"><i class="fa fa-bar-chart fa-fw"></i>图表</a></li>
+            <li><a href="data-visualization.jsp"><i class="fa fa-database fa-fw"></i>数据图表</a></li>
+            <li><a href="maps.jsp"><i class="fa fa-map-marker fa-fw"></i>地图</a></li>
             <li><a href="#" class="active"><i class="fa fa-users fa-fw"></i>用户管理</a></li>
-            <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>个人信息</a></li>
-            <li><a href="login.html"><i class="fa fa-eject fa-fw"></i>登出</a></li>
+            <li><a href="preferences.jsp"><i class="fa fa-sliders fa-fw"></i>个人信息</a></li>
+            <li><a href="login.jsp"><i class="fa fa-eject fa-fw"></i>登出</a></li>
           </ul>  
         </nav>
       </div>
@@ -70,7 +70,7 @@
                 <li><a href="" class="active">用户面板</a></li>
                 <li><a href="">管理</a></li>
                
-                <li><a href="login.html">登出</a></li>
+                <li><a href="login.jsp">登出</a></li>
               </ul>  
             </nav> 
           </div>
@@ -181,7 +181,7 @@
               <div class="panel panel-default margin-10">
                 <div class="panel-heading"><h2 class="text-uppercase">登录</h2></div>
                 <div class="panel-body">
-                  <form action="index.html" class="templatemo-login-form">
+                  <form action="index.jsp" class="templatemo-login-form">
                     <div class="form-group">
                       <label for="inputEmail">邮箱</label>
                       <input type="email" class="form-control" id="inputEmail" placeholder="输入邮箱">

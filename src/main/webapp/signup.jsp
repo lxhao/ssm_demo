@@ -32,7 +32,7 @@
 	          <div class="square"></div>
 	          <h1>用户注册</h1>
 	        </header>
-		<form action="bgindex.html" class="templatemo-login-form">
+		<form action="bgindex.jsp" class="templatemo-login-form">
 	        	
 				<div class="form-group">
 	        		<div class="input-group">
@@ -73,7 +73,7 @@
 	          	<div class="form-group">
 				    <div class="checkbox squaredTwo">
 				        <input type="checkbox" id="c1" name="cc" />
-						<label for="c1"><span></span>同意</label><a href="signup.html" class="blue-text">相关条款</a>
+						<label for="c1"><span></span>同意</label><a href="signup.jsp" class="blue-text">相关条款</a>
 				    </div>				    
 				</div>
 				<div class="form-group">

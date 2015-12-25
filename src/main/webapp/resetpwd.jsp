@@ -32,7 +32,7 @@
 	          <div class="square"></div>
 	          <h1>找回密码</h1>
 	        </header>
-	        <form action="index.html" class="templatemo-login-form">
+	        <form action="index.jsp" class="templatemo-login-form">
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
@@ -52,7 +52,7 @@
 	        </form>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>还未进行注册？ <strong><a href="signup.html" class="blue-text">现在注册！</a></strong></p>
+			<p>还未进行注册？ <strong><a href="signup.jsp" class="blue-text">现在注册！</a></strong></p>
 		</div>
 	</body>
 </html>

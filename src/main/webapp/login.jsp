@@ -49,7 +49,7 @@
 	          	<div class="form-group">
 				    <div class="checkbox squaredTwo">
 				        <input type="checkbox" id="c1" name="cc" />
-						<label for="c1"><span></span>记住密码</label><strong><p><a href="resetpwd.html" class="blue-text">忘记密码？</a></strong></p>
+						<label for="c1"><span></span>记住密码</label><strong><p><a href="resetpwd.jsp" class="blue-text">忘记密码？</a></strong></p>
 				    </div>				    
 				</div>
 				<div class="form-group">
@@ -58,7 +58,7 @@
 	        </form>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>还未进行注册？ <strong><a href="signup.html" class="blue-text">现在注册！</a></strong></p>
+			<p>还未进行注册？ <strong><a href="signup.jsp" class="blue-text">现在注册！</a></strong></p>
 		</div>
 	</body>
 </html>

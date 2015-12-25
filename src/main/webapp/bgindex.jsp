@@ -52,12 +52,12 @@
         <nav class="templatemo-left-nav">          
           <ul>
             <li><a href="#" class="active"><i class="fa fa-home fa-fw"></i>主页</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-bar-chart fa-fw"></i>图表</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-database fa-fw"></i>数据图表</a></li>
-            <li><a href="maps.html"><i class="fa fa-map-marker fa-fw"></i>地图</a></li>
-            <li><a href="manage-users.html"><i class="fa fa-users fa-fw"></i>用户管理</a></li>
-            <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>个人信息</a></li>
-            <li><a href="login.html"><i class="fa fa-eject fa-fw"></i>登出</a></li>
+            <li><a href="data-visualization.jsp"><i class="fa fa-bar-chart fa-fw"></i>图表</a></li>
+            <li><a href="data-visualization.jsp"><i class="fa fa-database fa-fw"></i>数据图表</a></li>
+            <li><a href="maps.jsp"><i class="fa fa-map-marker fa-fw"></i>地图</a></li>
+            <li><a href="manage-users.jsp"><i class="fa fa-users fa-fw"></i>用户管理</a></li>
+            <li><a href="preferences.jsp"><i class="fa fa-sliders fa-fw"></i>个人信息</a></li>
+            <li><a href="login.jsp"><i class="fa fa-eject fa-fw"></i>登出</a></li>
           </ul>  
         </nav>
       </div>
@@ -70,7 +70,7 @@
                 <li><a href="" class="active">用户面板</a></li>
                 <li><a href="">管理</a></li>
                
-                <li><a href="login.html">登出</a></li>
+                <li><a href="login.jsp">登出</a></li>
               </ul>  
             </nav> 
           </div>

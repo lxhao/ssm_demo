@@ -65,8 +65,8 @@
                     <li class="page-scroll">
                         <a href="#contact">联系我们</a>
                     </li>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="signup.html">注册</a></li>
+					<li><a href="login.jsp">登录</a></li>
+					<li><a href="signup.jsp">注册</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
