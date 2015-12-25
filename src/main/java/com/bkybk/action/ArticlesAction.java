@@ -11,7 +11,12 @@ import com.bkybk.service.ArticlesService;
 public class ArticlesAction extends BaseAction {
 
 	private static final long serialVersionUID = -371845348379L;
+	private ArticlesService articleService;
+	
 
+	private List<Article> articleList;
+
+	private Article article;
 	
 	public String getArticlesAll() {
 		JsonModel j = new JsonModel();
@@ -19,8 +24,6 @@ public class ArticlesAction extends BaseAction {
 		j.setObj(articleList);
 		return "articleList";
 	}
-	
-	
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -35,14 +38,6 @@ public class ArticlesAction extends BaseAction {
 		this.articleService = articleService;
 	}
 
-	private ArticlesService articleService;
-	
-
-	private List<Article> articleList;
-
-	private Article article;
-
-
 	public List<Article> getArticleList() {
 		return articleList;
 	}
@@ -51,15 +46,20 @@ public class ArticlesAction extends BaseAction {
 		this.articleList = articleList;
 	}
 
-	public Article getArticle() {
-		return article;
+	public String editArticle() {
+		JsonModel j = new JsonModel();
+		article = new Article();
+		getParams(article);
+		article = articleService.getArticleById(article.getArticleid());
+		j.setSuccess(true);
+		j.setMsg("OK");
+		j.setObj(article);
+		return "show";
 	}
 
 	public void setArticle(Article article) {
 		this.article = article;
-	}
-
-
+	}	
 
 
 

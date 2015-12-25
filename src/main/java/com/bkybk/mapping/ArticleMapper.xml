@@ -1,43 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.bkybk.dao.ArticleMapper" >
-  <resultMap id="BaseResultMap" type="com.bkybk.model.Article" >
-    <id column="articleid" property="articleid" jdbcType="INTEGER" />
-    <result column="userid" property="userid" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  
-  <sql id="Base_Column_List" >
-    articleid, userid, title, content, publishtime
-  </sql>
-  
-  <sql id="Example_Where_Clause">
-		<where>
-			<if test="articleid != null">
-				user.id = #{articleid,jdbcType=INTEGER}
-			</if>
-			<if test="userid != null">
-				AND user.userid like CONCAT('%',#{userid,jdbcType=INTEGER},'%')
-			</if>
-			<if test="title != null">
-				AND user.title = #{title,jdbcType=VARCHAR}
-			</if>
-			<if test="content != null">
-				AND user.content like CONCAT('%',#{content,jdbcType=VARCHAR},'%') 
-			</if>
-			<if test="publishtime != null">
-				AND user.publishtime like CONCAT('%',#{publishtime,jdbcType=TIMESTAMP},'%') 
-			</if>
-		</where>
-	</sql>
+<mapper namespace="com.bkybk.dao.ArticleMapper">
+
+
+	<resultMap id="BaseArticleResultMap" type="com.bkybk.model.Article">
+		<id column="articleid" property="articleid" jdbcType="INTEGER" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<resultMap type="com.bkybk.model.User" id="BaseUserResultMap">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="Login_name" property="loginName" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="Email" property="email" jdbcType="VARCHAR" />
+		<result column="Phone" property="phone" jdbcType="VARCHAR" />
+		<result column="Address" property="address" jdbcType="VARCHAR" />
+		<result column="last_Login_Time" property="lastLoginTime"
+			jdbcType="TIMESTAMP" />
+		<result column="Regist_Time" property="registTime" jdbcType="TIMESTAMP" />
+		<result column="Category_id" property="categoryId" jdbcType="INTEGER" />
+	</resultMap>
+
+
+	<resultMap id="ArticleResultMap" type="com.bkybk.model.Article">
+		<id column="articleid" property="articleid" jdbcType="INTEGER" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+		<collection property="user" ofType="com.bkybk.model.User">
+				
+			<id column="id" property="id" jdbcType="INTEGER" />
+			<result column="Login_name" property="loginName" jdbcType="VARCHAR" />
+			<result column="password" property="password" jdbcType="VARCHAR" />
+			<result column="name" property="name" jdbcType="VARCHAR" />
+			<result column="Email" property="email" jdbcType="VARCHAR" />
+			<result column="Phone" property="phone" jdbcType="VARCHAR" />
+			<result column="Address" property="address" jdbcType="VARCHAR" />
+			<result column="last_Login_Time" property="lastLoginTime"
+				jdbcType="TIMESTAMP" />
+			<result column="Regist_Time" property="registTime" jdbcType="TIMESTAMP" />
+			<result column="Category_id" property="categoryId" jdbcType="INTEGER" />
+			</collection>
+	</resultMap>
+
+
+	<select id="getAll" resultMap="ArticleResultMap">
+		SELECT
+	`user`.id,
+	`user`.Login_name,
+	`user`.`password`,
+	`user`.`name`,
+	`user`.Email,
+	`user`.Phone,
+	`user`.Address,
+	`user`.last_Login_Time,
+	`user`.Regist_Time,
+	`user`.Category_id,
+	article.articleid ,
+	article.userid ,
+	article.title ,
+	article.content,
+	article.publishtime
+	FROM
+	`user`, article
+	where `user`.id = article.userid 
+	</select>
 	
-	  
-<select id="getAll" resultMap="BaseResultMap">
-  	select
-  	<include refid="Base_Column_List" />
-  	 from article
-  	<include refid="Example_Where_Clause" />
-  </select>
-  </mapper>
+	<select id="getArticleById" resultMap="ArticleResultMap" parameterType="java.lang.Integer">
+	select * from article,`user` where articleid = #{articleId,jdbcType=INTEGER} and `user`.id = article.userid 
+	</select>
+
+</mapper>
+
+

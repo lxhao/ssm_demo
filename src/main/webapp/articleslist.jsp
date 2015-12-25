@@ -38,8 +38,8 @@
 		window.location.href= url;
 	}
 	
-	function editUser(userId){
-		var url = "userAction!editUser.do?id="+userId;
+	function showArticle(articleId){
+		var url = "ArticlesAction!editArticle.do?articleid="+articleId;
 		window.location.href= url;
 	}
 	
@@ -58,9 +58,10 @@
 	</tr>
 	<s:iterator value="articleList" id="item">
 	<tr>
-		<td><s:property value="#item.title"/></td>
-		<td><s:property value="#item.userid"/></td>
+		<td><a href="javascript:none;" onclick="showArticle(<s:property value="#item.articleid"/>);"><s:property value="#item.title"/></a></td>
+		<td><s:property value="#item.user.name"/></td>
 		<td><s:property value="#item.publishtime"/></td>
+		
 		<td>
 			<a href="javascript:none;" onclick="editUser(<s:property value="#item.content"/>);">编辑</a>
 		</td>

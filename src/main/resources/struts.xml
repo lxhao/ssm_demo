@@ -43,6 +43,7 @@
 		
 		<action name="ArticlesAction" class="com.bkybk.action.ArticlesAction">
 			<result name="articleList">/articleslist.jsp</result>
+			<result name="show">/showArticle.jsp</result>
 		</action>
 		
 	</package>
