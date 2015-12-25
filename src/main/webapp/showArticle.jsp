@@ -11,12 +11,6 @@
 </head>
 <body>
 
-
-<%
-JSONObject obj = new JSONObject();
-out.print(obj.get("article"));
-out.flush();
-%>
 	<h1>美文欣赏</h1>
 
 		<table border="1">

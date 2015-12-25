@@ -18,6 +18,10 @@ public class ArticlesAction extends BaseAction {
 
 	private Article article;
 	
+	public Article getArticle() {
+		return article;
+	}
+
 	public String getArticlesAll() {
 		JsonModel j = new JsonModel();
 		articleList = articleService.getArticleAll();
