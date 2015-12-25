@@ -1,11 +1,13 @@
-<<<<<<< HEAD
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://git.oschina.net/rayleigh/Demo.git
 eclipse.preferences.version=1
 encoding//src/main/java/com/bkybk/model/BaseVo.java=UTF-8
 encoding//src/main/java/com/bkybk/service/impl/ContentServiceImpl.java=UTF-8
 encoding//src/main/java/com/bkybk/service/impl/UserServiceImpl.java=UTF-8
-=======
-eclipse.preferences.version=1
-encoding//src/main/java/com/bkybk/model/BaseVo.java=UTF-8
-encoding//src/main/java/com/bkybk/service/impl/ContentServiceImpl.java=UTF-8
-encoding//src/main/java/com/bkybk/service/impl/UserServiceImpl.java=UTF-8
->>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
+encoding//ui/base/bgindex.jsp=UTF-8
+encoding//ui/base/index.jsp=UTF-8
+encoding//ui/base/login.jsp=UTF-8
+encoding//ui/base/manage-users.jsp=UTF-8
+encoding//ui/base/resetpwd.jsp=UTF-8
+encoding//ui/base/signup.jsp=UTF-8

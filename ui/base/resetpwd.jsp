@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="s" uri="/struts-tags"%>
-     
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">  
-	    <title>用户登录</title>
+	    <title>找回密码</title>
         <meta name="description" content="">
         <meta name="author" content="templatemo">
         <!-- 
@@ -31,29 +30,24 @@
 		<div class="templatemo-content-widget templatemo-login-widget white-bg">
 			<header class="text-center">
 	          <div class="square"></div>
-	          <h1>用户登录</h1>
+	          <h1>找回密码</h1>
 	        </header>
-	        <form action="LoginAction!login.do" method="post">
+	        <form action="index.html" class="templatemo-login-form">
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input name="loginName" type="text" class="form-control" onblur="validatorLoginName"  placeholder="root@admin.com">           
+		              	<input type="text" class="form-control" placeholder="注册时所用邮箱">           
 		          	</div>	
 	        	</div>
 	        	<div class="form-group">
 	        		<div class="input-group">
-		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input name="password" type="password" class="form-control" placeholder="******">           
+		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
+		              	<input type="text" class="form-control" placeholder="用户名">           
 		          	</div>	
 	        	</div>	          	
-	          	<div class="form-group">
-				    <div class="checkbox squaredTwo">
-				        <input type="checkbox" id="c1" name="cc" />
-						<label for="c1"><span></span>记住密码</label><strong><p><a href="resetpwd.html" class="blue-text">忘记密码？</a></strong></p>
-				    </div>				    
-				</div>
+	          	
 				<div class="form-group">
-					<button type="submit" class="templatemo-blue-button width-100">登录</button>
+					<button type="submit" class="templatemo-blue-button width-100">发送</button>
 				</div>
 	        </form>
 		</div>

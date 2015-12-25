@@ -38,6 +38,7 @@
 	</listener>
 	<!-- 项目默认页 -->	
 	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
 		<welcome-file>/jsp/user/index.jsp</welcome-file>
 	</welcome-file-list>
 	
