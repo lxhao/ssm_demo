@@ -41,6 +41,10 @@
 			<result name="logout">/index.jsp</result>
 		</action>
 		
+		<action name="ArticlesAction" class="com.bkybk.action.ArticlesAction">
+			<result name="articleList">/articleslist.jsp</result>
+		</action>
+		
 	</package>
 
 </struts>

@@ -37,9 +37,7 @@ public class UserServiceImpl implements UserServiceI {
 
 	public int save(User user) {
 		int userFlag = userMapper.insertSelective(user);
-		// 璇存槑:
-		// 涓轰簡閰嶅悎澶氱鏂瑰紡鐨勬煡璇�鎵�互鍦ㄨ繖閲屾兂杩欏紶(User 鍜�Category 鐨勫叧绯�琛ㄤ腑鎻掑叆鏁版嵁
-		// 濡傛灉鐩存帴浣跨敤user 鐨�categoryId鍘籆ategory涓仈鏌�杩欎笉闇�鎻掑叆濡備笅鏁版嵁
+
 		UserCategory userCategory = new UserCategory();
 		userCategory.setUid(user.getId());
 		userCategory.setCid(user.getCategoryId());

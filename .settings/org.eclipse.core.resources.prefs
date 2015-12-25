@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 encoding//src/main/java/com/bkybk/model/BaseVo.java=UTF-8
 encoding//src/main/java/com/bkybk/service/impl/ContentServiceImpl.java=UTF-8
 encoding//src/main/java/com/bkybk/service/impl/UserServiceImpl.java=UTF-8
+=======
+eclipse.preferences.version=1
+encoding//src/main/java/com/bkybk/model/BaseVo.java=UTF-8
+encoding//src/main/java/com/bkybk/service/impl/ContentServiceImpl.java=UTF-8
+encoding//src/main/java/com/bkybk/service/impl/UserServiceImpl.java=UTF-8
+>>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git

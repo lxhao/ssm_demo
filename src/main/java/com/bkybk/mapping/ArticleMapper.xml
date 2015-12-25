@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bkybk.dao.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.bkybk.model.Article" >
+    <id column="articleid" property="articleid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    articleid, userid, title, content, publishtime
+  </sql>
+  
+  <sql id="Example_Where_Clause">
+		<where>
+			<if test="articleid != null">
+				user.id = #{articleid,jdbcType=INTEGER}
+			</if>
+			<if test="userid != null">
+				AND user.userid like CONCAT('%',#{userid,jdbcType=INTEGER},'%')
+			</if>
+			<if test="title != null">
+				AND user.title = #{title,jdbcType=VARCHAR}
+			</if>
+			<if test="content != null">
+				AND user.content like CONCAT('%',#{content,jdbcType=VARCHAR},'%') 
+			</if>
+			<if test="publishtime != null">
+				AND user.publishtime like CONCAT('%',#{publishtime,jdbcType=TIMESTAMP},'%') 
+			</if>
+		</where>
+	</sql>
+	
+	  
+<select id="getAll" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+  	 from article
+  	<include refid="Example_Where_Clause" />
+  </select>
+  </mapper>

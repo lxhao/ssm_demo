@@ -1,6 +1,7 @@
 package com.bkybk.model;
 
-import java.security.Timestamp;
+import java.util.Date;
+
 
 public class Article {
 	
@@ -8,7 +9,7 @@ public class Article {
 	private Integer userid;
 	private String title;
 	private String content;
-	private Timestamp publishtime;
+	private Date publishtime;
 	
 	
 	public Integer getArticleid() {
@@ -35,10 +36,10 @@ public class Article {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Timestamp getPublishtime() {
+	public Date getPublishtime() {
 		return publishtime;
 	}
-	public void setPublishtime(Timestamp publishtime) {
+	public void setPublishtime(Date publishtime) {
 		this.publishtime = publishtime;
 	}
 }
