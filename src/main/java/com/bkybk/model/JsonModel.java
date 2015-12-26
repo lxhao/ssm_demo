@@ -2,6 +2,7 @@ package com.bkybk.model;
 
 /**
  * JSON 模型
+ * 
  * @author Kerry
  *
  */

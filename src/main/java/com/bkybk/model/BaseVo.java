@@ -9,29 +9,29 @@ public class BaseVo {
 	/** 涓嶆寔涔咃紝鏁版嵁搴撴煡璇㈢敤 */
 	@JsonIgnore
 	private boolean distinct;
-	/** 涓嶆寔涔咃紝鍒嗛〉鐢�*/
+	/** 涓嶆寔涔咃紝鍒嗛〉鐢� */
 	@JsonIgnore
-	protected Integer page = 1; 	// 绗嚑椤�榛樿绗竴椤�
+	protected Integer page = 1; // 绗嚑椤�榛樿绗竴椤�
 	@JsonIgnore
-	protected Integer rows = 10;	// 姣忛〉鏄剧ず鐨勬潯鏁�榛樿姣忛〉鏄剧ず10鏉℃暟鎹�
+	protected Integer rows = 10; // 姣忛〉鏄剧ず鐨勬潯鏁�榛樿姣忛〉鏄剧ず10鏉℃暟鎹�
 	@JsonIgnore
-	protected Integer total;		// 鏁版嵁鎬绘潯鏁�
+	protected Integer total; // 鏁版嵁鎬绘潯鏁�
 	@JsonIgnore
-	protected Integer totalPage;	// 鎬婚〉鏁�
+	protected Integer totalPage; // 鎬婚〉鏁�
 	/** 涓嶆寔涔咃紝鏁版嵁搴撴帓搴忕敤 */
 	@JsonIgnore
-	protected String sort;			// 闇�鎺掑簭鐨勫垪
+	protected String sort; // 闇�鎺掑簭鐨勫垪
 	@JsonIgnore
-	protected String order;			// 闇�鎺掑簭鐨勮鍒�
+	protected String order; // 闇�鎺掑簭鐨勮鍒�
 	/** 涓嶆寔涔咃紝鏁版嵁搴撴煡璇㈢敤 */
 	@JsonIgnore
-	protected Date startDateTime;	// 璧峰鏃堕棿
+	protected Date startDateTime; // 璧峰鏃堕棿
 	@JsonIgnore
-	protected Date endDateTime;		// 缁撴潫鏃堕棿
-	
+	protected Date endDateTime; // 缁撴潫鏃堕棿
+
 	@JsonIgnore
 	public Integer getMax() {
-		//return getPageNumber() * getRows();
+		// return getPageNumber() * getRows();
 		return getRows();
 	}
 
@@ -40,7 +40,7 @@ public class BaseVo {
 		if (getPage() == 1) {
 			return 0;
 		}
-		return getPage() * getRows() - getRows() ;
+		return getPage() * getRows() - getRows();
 	}
 
 	public Integer getPage() {

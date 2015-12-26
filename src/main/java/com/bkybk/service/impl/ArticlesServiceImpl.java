@@ -11,15 +11,15 @@ import com.bkybk.service.ArticlesService;
 
 @Service("articlesService")
 public class ArticlesServiceImpl implements ArticlesService {
-	
+
 	private ArticleMapper articleMapper;
-	
-	//保存文章	
+
+	// 保存文章
 	public int save(Article article) {
 		return articleMapper.saveArticle(article);
 	}
-	
-	//获取文章列表	
+
+	// 获取文章列表
 	public List<Article> getArticleAll() {
 		System.out.println(articleMapper + "/////////");
 		return articleMapper.getAll();
@@ -34,26 +34,25 @@ public class ArticlesServiceImpl implements ArticlesService {
 		this.articleMapper = articleMapper;
 	}
 
-	//public int getArticleSize(Article Article);
-	//根据ID查找文章	
+	// public int getArticleSize(Article Article);
+	// 根据ID查找文章
 	public Article getArticleById(int articleId) {
 		return articleMapper.getArticleById(articleId);
 	}
 
-	//根据标题查找文章	
-	public Article getArticleByTitle(Article article) {
-		return articleMapper.getArticleByTitle(article);
+	// 根据标题查找文章
+	public List<Article> getArticleByTitle(String articleStr) {
+		return articleMapper.getArticleByTitle(articleStr);
 	}
 
-	//根据标题根新文章	
+	// 根据标题根新文章 e
 	public int updateArticle(Article article) {
 		return articleMapper.updateArticle(article);
 	}
 
-	//根据ID删除文章
+	// 根据ID删除文章
 	public int delArticleById(int articleId) {
 		return articleMapper.delArticleById(articleId);
 	}
-
 
 }

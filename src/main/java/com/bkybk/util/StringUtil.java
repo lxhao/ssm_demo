@@ -11,7 +11,7 @@ public class StringUtil {
 	 * @return
 	 */
 	public static boolean isValidStr(String str) {
-		
+
 		return str != null && str.trim().length() > 0;
 	}
 
@@ -29,10 +29,9 @@ public class StringUtil {
 		try {
 			result = new BigDecimal(str);
 		} catch (NumberFormatException e) {
-		    e.printStackTrace();
+			e.printStackTrace();
 		}
 		return result;
 	}
 
-   
 }

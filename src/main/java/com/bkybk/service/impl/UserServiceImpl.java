@@ -15,12 +15,13 @@ import com.bkybk.service.UserServiceI;
 public class UserServiceImpl implements UserServiceI {
 
 	private UserMapper userMapper;
-	
+
 	private UserCategoryMapper userCategoryMapper;
 
 	public UserCategoryMapper getUserCategoryMapper() {
 		return userCategoryMapper;
 	}
+
 	@Autowired
 	public void setUserCategoryMapper(UserCategoryMapper userCategoryMapper) {
 		this.userCategoryMapper = userCategoryMapper;
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserServiceI {
 		userCategory.setUid(user.getId());
 		userCategory.setCid(user.getCategoryId());
 		int userCategoryFlag = userCategoryMapper.insertSelective(userCategory);
-		if(userFlag > 0 && userCategoryFlag > 0){
+		if (userFlag > 0 && userCategoryFlag > 0) {
 			return 1;
 		}
 		return 0;
@@ -57,23 +58,26 @@ public class UserServiceImpl implements UserServiceI {
 
 		UserCategory userCate = new UserCategory();
 		userCate.setUid(user.getId());
-		List<UserCategory> userCateList = userCategoryMapper.getUserCategoryList(userCate);
+		List<UserCategory> userCateList = userCategoryMapper
+				.getUserCategoryList(userCate);
 		int userCategoryFlag = 0;
-		if(null != userCateList && userCateList.size() > 0){
+		if (null != userCateList && userCateList.size() > 0) {
 			userCate = userCateList.get(0);
 			userCate.setCid(user.getCategoryId());
-			userCategoryFlag = userCategoryMapper.updateByPrimaryKeySelective(userCate);
+			userCategoryFlag = userCategoryMapper
+					.updateByPrimaryKeySelective(userCate);
 		}
-		if(userFlag > 0 && userCategoryFlag > 0){
+		if (userFlag > 0 && userCategoryFlag > 0) {
 			return 1;
 		}
 		return 0;
 	}
-	
+
 	public int delUserById(int userId) {
 		UserCategory userCate = new UserCategory();
 		userCate.setUid(userId);
-		List<UserCategory> userCateList = userCategoryMapper.getUserCategoryList(userCate);
+		List<UserCategory> userCateList = userCategoryMapper
+				.getUserCategoryList(userCate);
 		// 寮�鍒犻櫎鍏崇郴
 		for (int i = 0; i < userCateList.size(); i++) {
 			userCate = userCateList.get(0);
@@ -81,7 +85,7 @@ public class UserServiceImpl implements UserServiceI {
 		}
 		return userMapper.deleteByPrimaryKey(userId);
 	}
-	
+
 	public List<User> getUserAll() {
 		return userMapper.getAll();
 	}
@@ -93,6 +97,7 @@ public class UserServiceImpl implements UserServiceI {
 	public List<User> getUserList(User user) {
 		return userMapper.getAll6(user);
 	}
+
 	public User getUser(User user) {
 		// TODO Auto-generated method stub
 		return userMapper.selectByUser(user);

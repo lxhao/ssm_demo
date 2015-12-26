@@ -11,24 +11,24 @@ import com.bkybk.service.CategoryServiceI;
 import com.bkybk.service.UserServiceI;
 
 public class UserAction extends BaseAction {
-	
+
 	private static final long serialVersionUID = -3675623781845348379L;
-	
+
 	private UserServiceI userService;
-	
+
 	private CategoryServiceI categoryService;
-	
+
 	private List<User> userList;
-	
+
 	private User user;
-	
+
 	private List<Ucategory> categoryList;
-	
-	public String execute(){
+
+	public String execute() {
 		return SUCCESS;
 	}
-	
-	public String getUserAll(){
+
+	public String getUserAll() {
 		JsonModel j = new JsonModel();
 		try {
 			user = new User();
@@ -37,8 +37,8 @@ public class UserAction extends BaseAction {
 			user.setOrder("desc");
 			userList = userService.getUserList(user);
 			user.setTotal(userService.getUserSize(user));
-			int totalPageNum = user.getTotal()/user.getRows();
-			if(user.getTotal() % user.getRows() > 0){
+			int totalPageNum = user.getTotal() / user.getRows();
+			if (user.getTotal() % user.getRows() > 0) {
 				totalPageNum++;
 			}
 			user.setTotalPage(totalPageNum);
@@ -49,38 +49,38 @@ public class UserAction extends BaseAction {
 			System.out.println(e);
 			j.setMsg(e.getMessage());
 		}
-		//super.writeJson(j);
+		// super.writeJson(j);
 		return "userList";
 	}
-	
-	public String addUser(){
+
+	public String addUser() {
 		categoryList = categoryService.getAll();
 		return "add";
 	}
-	
-	public String editUser(){
+
+	public String editUser() {
 		categoryList = categoryService.getAll();
 		user = new User();
 		getParams(user);
 		user = userService.getUserById(user.getId());
 		return "add";
 	}
-	
-	public String saveOrUpdate(){
+
+	public String saveOrUpdate() {
 		user = new User();
 		getParams(user);
-		if(null == user.getId()){
+		if (null == user.getId()) {
 			userService.save(user);
-		}else{
+		} else {
 			userService.updateUser(user);
 		}
 		return "goList";
 	}
-	
-	public String delUser(){
+
+	public String delUser() {
 		user = new User();
 		getParams(user);
-		if(null !=user.getId()){
+		if (null != user.getId()) {
 			userService.delUserById(user.getId());
 		}
 		return "goList";
@@ -94,7 +94,7 @@ public class UserAction extends BaseAction {
 	public void setUserService(UserServiceI userService) {
 		this.userService = userService;
 	}
-	
+
 	public List<User> getUserList() {
 		return userList;
 	}

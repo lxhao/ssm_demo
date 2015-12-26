@@ -9,7 +9,7 @@
   <sql id="Base_Column_List" >
     id, uid, cid
   </sql>
-  <sql id="Example_Where_Clause" >
+  <sql id="Example_Where_Clause">
     <where>
       <if test="id != null" >
        and id = #{id,jdbcType=INTEGER}

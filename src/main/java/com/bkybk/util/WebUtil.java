@@ -12,7 +12,7 @@ public class WebUtil {
 		if (request == null) {
 			return paraMap;
 		}
-		
+
 		Enumeration<?> names = request.getParameterNames();
 		while (names.hasMoreElements()) {
 			String name = (String) names.nextElement();
@@ -32,10 +32,10 @@ public class WebUtil {
 				paraMap.put(name, values);
 			}
 		}
-		
+
 		paraMap.put("session_id", request.getSession().getId());
-		
+
 		return paraMap;
 	}
-	
+
 }

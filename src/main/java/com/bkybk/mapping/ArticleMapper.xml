@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bkybk.dao.ArticleMapper">
 
-
+	<!-- 查询文章的结果映射 -->
 	<resultMap id="BaseArticleResultMap" type="com.bkybk.model.Article">
 		<id column="articleid" property="articleid" jdbcType="INTEGER" />
 		<result column="userid" property="userid" jdbcType="INTEGER" />
@@ -11,6 +11,7 @@
 		<result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
 	</resultMap>
 
+	<!-- 查询用户的结果映射 -->
 	<resultMap type="com.bkybk.model.User" id="BaseUserResultMap">
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="Login_name" property="loginName" jdbcType="VARCHAR" />
@@ -25,7 +26,7 @@
 		<result column="Category_id" property="categoryId" jdbcType="INTEGER" />
 	</resultMap>
 
-
+	<!-- 查询用户和文章的结果映射 -->
 	<resultMap id="ArticleResultMap" type="com.bkybk.model.Article">
 		<id column="articleid" property="articleid" jdbcType="INTEGER" />
 		<result column="userid" property="userid" jdbcType="INTEGER" />
@@ -33,7 +34,7 @@
 		<result column="content" property="content" jdbcType="VARCHAR" />
 		<result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
 		<collection property="user" ofType="com.bkybk.model.User">
-				
+
 			<id column="id" property="id" jdbcType="INTEGER" />
 			<result column="Login_name" property="loginName" jdbcType="VARCHAR" />
 			<result column="password" property="password" jdbcType="VARCHAR" />
@@ -45,35 +46,71 @@
 				jdbcType="TIMESTAMP" />
 			<result column="Regist_Time" property="registTime" jdbcType="TIMESTAMP" />
 			<result column="Category_id" property="categoryId" jdbcType="INTEGER" />
-			</collection>
+		</collection>
 	</resultMap>
 
-
+	<!-- 获取文章列表 -->
 	<select id="getAll" resultMap="ArticleResultMap">
 		SELECT
-	`user`.id,
-	`user`.Login_name,
-	`user`.`password`,
-	`user`.`name`,
-	`user`.Email,
-	`user`.Phone,
-	`user`.Address,
-	`user`.last_Login_Time,
-	`user`.Regist_Time,
-	`user`.Category_id,
-	article.articleid ,
-	article.userid ,
-	article.title ,
-	article.content,
-	article.publishtime
-	FROM
-	`user`, article
-	where `user`.id = article.userid 
+		`user`.id,
+		`user`.Login_name,
+		`user`.`password`,
+		`user`.`name`,
+		`user`.Email,
+		`user`.Phone,
+		`user`.Address,
+		`user`.last_Login_Time,
+		`user`.Regist_Time,
+		`user`.Category_id,
+		article.articleid ,
+		article.userid ,
+		article.title ,
+		article.content,
+		article.publishtime
+		FROM
+		`user`, article
+		where `user`.id = article.userid
 	</select>
-	
-	<select id="getArticleById" resultMap="ArticleResultMap" parameterType="java.lang.Integer">
-	select * from article,`user` where articleid = #{articleId,jdbcType=INTEGER} and `user`.id = article.userid 
+
+	<!-- 根据ID查询文章 -->
+	<select id="getArticleById" resultMap="ArticleResultMap"
+		parameterType="java.lang.Integer">
+		SELECT * from article,`user` where articleid = #{articleId,jdbcType=INTEGER}
+		and `user`.id = article.userid
 	</select>
+
+	<!-- 保存文章 -->
+	<insert id="saveArticle" parameterType="com.bkybk.model.Article">
+		INSERT into article (articleid, userid, title, content, publishtime)
+		values
+		(#{articleid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}，
+		#{content, jdbcType=VARCHAR}, #{publishtime, jdbcType=TIMESTAMP}
+	</insert>
+
+	<!-- 根据标题查询文章 -->
+	<select id="getArticleByTitle" resultMap="ArticleResultMap"
+		parameterType="java.lang.String">
+		SELECT * from article,`user` where article.title =
+		#{articleStr,jdbcType=VARCHAR} and `user`.id = article.userid
+	</select>
+
+	<!-- 修改文章 -->
+	<update id="updateArticle" parameterType="com.bkybk.model.Article">
+		UPDATE article
+		set articleid=#{articleId,jdbcType=INTEGER}, userid=#{userid,
+		jdbcType=INTEGER}，
+		title=#{title, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR},
+		publishtime=#{publishtime, jdbcType=TIMESTAMP}
+		where
+		article.articleid = #{articleid, jdbcType=INTEGER}
+	</update>
+
+	<!-- 删除文章 -->
+	<delete id="delArticleById" parameterType="java.lang.Integer">
+		delete from article
+		where articleid=#{articleId,jdbcType=INTEGER}
+	</delete>
+
 
 </mapper>
 

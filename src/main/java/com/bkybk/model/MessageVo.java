@@ -1,11 +1,11 @@
 package com.bkybk.model;
 
 public class MessageVo {
-	
+
 	private String msg;
-	
+
 	private boolean success;
-	
+
 	private Object obj;
 
 	public String getMsg() {

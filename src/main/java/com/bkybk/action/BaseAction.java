@@ -13,12 +13,12 @@ import com.bkybk.util.BeanUtil;
 import com.bkybk.util.WebUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BaseAction extends ActionSupport  {
-	
-    protected HttpServletRequest request;
+public class BaseAction extends ActionSupport {
 
-    protected HttpServletResponse response;
-    
+	protected HttpServletRequest request;
+
+	protected HttpServletResponse response;
+
 	/**
 	 * 
 	 */
@@ -26,8 +26,10 @@ public class BaseAction extends ActionSupport  {
 
 	public void writeJson(Object object) {
 		try {
-			String json = JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd HH:mm:ss");
-			ServletActionContext.getResponse().setContentType("text/html;charset=utf-8");
+			String json = JSON.toJSONStringWithDateFormat(object,
+					"yyyy-MM-dd HH:mm:ss");
+			ServletActionContext.getResponse().setContentType(
+					"text/html;charset=utf-8");
 			ServletActionContext.getResponse().getWriter().write(json);
 			ServletActionContext.getResponse().getWriter().flush();
 			ServletActionContext.getResponse().getWriter().close();
@@ -38,15 +40,15 @@ public class BaseAction extends ActionSupport  {
 
 	@SuppressWarnings("rawtypes")
 	protected Map getParams() {
-        return WebUtil.getParameterMap(getHttpRequest());
-    }
-	
+		return WebUtil.getParameterMap(getHttpRequest());
+	}
+
 	protected void getParams(Object bean) {
-        BeanUtil.copyProperties(bean, getParams());
-    }
-	
+		BeanUtil.copyProperties(bean, getParams());
+	}
+
 	protected HttpServletRequest getHttpRequest() {
-        request = ServletActionContext.getRequest();
-        return request;
-    }
+		request = ServletActionContext.getRequest();
+		return request;
+	}
 }

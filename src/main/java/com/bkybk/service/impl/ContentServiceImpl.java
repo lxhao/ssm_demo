@@ -21,6 +21,4 @@ public class ContentServiceImpl implements ContentServiceI {
 		return null;
 	}
 
-	
-
 }
