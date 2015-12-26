@@ -36,16 +36,17 @@
 
 		</action>
 		<action name="LoginAction" class="com.bkybk.action.LoginAction">
-			<result name="login">/welcome.jsp</result>
+			<result name="login">/bgindex.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="logout">/index.jsp</result>
 		</action>
-		
+
 		<action name="ArticlesAction" class="com.bkybk.action.ArticlesAction">
 			<result name="articleList">/articleslist.jsp</result>
-			<result name="show">/showArticle.jsp</result>
+			<result name="display">/displayArticle.jsp</result>
+			<result name="edit">/articlesEditor.jsp</result>
 		</action>
-		
+
 	</package>
 
 </struts>
