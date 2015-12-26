@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <h2>S2SMDemo</h2>
 <a href="userAction!getUserAll.do">查看信息</a>
-<a href="userAction!addUser.do">新增用户</a>
+<a href="userAction!addUser.do">新增用户</a>OOOOO
 <a href="login.jsp">立刻登录</a></body>
 </html>
 

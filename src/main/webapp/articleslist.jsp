@@ -38,7 +38,12 @@
 		window.location.href= url;
 	}
 	
-	function showArticle(articleId){
+	function displayArticle(articleId){
+		var url = "ArticlesAction!displayArticle.do?articleid="+articleId;
+		window.location.href= url;
+	}
+	
+	function editArticle(articleId){
 		var url = "ArticlesAction!editArticle.do?articleid="+articleId;
 		window.location.href= url;
 	}
@@ -58,16 +63,16 @@
 	</tr>
 	<s:iterator value="articleList" id="item">
 	<tr>
-		<td><a href="javascript:none;" onclick="showArticle(<s:property value="#item.articleid"/>);"><s:property value="#item.title"/></a></td>
+		<td><a href="javascript:none;" onclick="displayArticle(<s:property value="#item.articleid"/>);"><s:property value="#item.title"/></a></td>
 		<td><s:property value="#item.user.name"/></td>
 		<td><s:property value="#item.publishtime"/></td>
 		
 		<td>
-			<a href="javascript:none;" onclick="editUser(<s:property value="#item.content"/>);">编辑</a>
+			<a href="javascript:none;" onclick="editArticle(<s:property value="#item.articleid"/>);">编辑</a>
 		</td>
 	</tr>
 	</s:iterator>
-	
+
 </table>
 
 <div id="pageStyle">
