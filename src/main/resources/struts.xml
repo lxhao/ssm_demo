@@ -45,6 +45,7 @@
 			<result name="articleList">/articleslist.jsp</result>
 			<result name="display">/displayArticle.jsp</result>
 			<result name="edit">/articlesEditor.jsp</result>
+			<result name="delete">/articleslist.jsp</result>
 		</action>
 
 	</package>

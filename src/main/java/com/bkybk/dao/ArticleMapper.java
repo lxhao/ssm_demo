@@ -22,6 +22,6 @@ public interface ArticleMapper {
 	int updateArticle(Article article);
 
 	// 删除文章
-	int delArticleById(Integer articleId);
+	void delArticleById(Integer articleId);
 
 }

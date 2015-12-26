@@ -47,12 +47,13 @@ public class ArticlesServiceImpl implements ArticlesService {
 
 	// 根据标题根新文章 e
 	public int updateArticle(Article article) {
+		System.out.println("articleid=" + article.getArticleid()+"......................................................................................................");
 		return articleMapper.updateArticle(article);
 	}
 
 	// 根据ID删除文章
-	public int delArticleById(int articleId) {
-		return articleMapper.delArticleById(articleId);
+	public void delArticleById(int articleId) {
+		articleMapper.delArticleById(articleId);
 	}
 
 }

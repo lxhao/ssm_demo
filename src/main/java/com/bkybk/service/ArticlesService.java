@@ -28,7 +28,7 @@ public interface ArticlesService {
 
 	// 根据标题根新文章
 
-	public int delArticleById(int articleId);
+	public void delArticleById(int articleId);
 	// 根据ID删除文章
 
 }

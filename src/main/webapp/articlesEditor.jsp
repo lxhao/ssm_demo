@@ -9,15 +9,23 @@
 </head>
 <body>
 	<form action="ArticlesAction!Update.do" method="post">
+	<input type="hidden" name="articleid" value="<s:property value="article.id"/>">
 		<table border="1">
 			<tr>
 				<td>文章标题</td>
 				<td><input name="title" value="<s:property value="article.title"/>"></td>
 			</tr>
+			
 			<tr>
 				<td>作者</td>
-				<td><input name="author" value="<s:property value="article.user.name"/>"></td>
+				<td><input name="user.name" value="<s:property value="article.user.name"/>" readonly></td>
 			</tr>
+			
+			<tr>
+			<td>发布时间</td>
+				<td><input name="publishtime" value="<s:property value="article.publishtime"/>" readonly></td>
+			</tr>
+			
 			<tr>
 				<td>正文</td>
 				<td><input name="contents" value="<s:property value="article.content"/>"></td>

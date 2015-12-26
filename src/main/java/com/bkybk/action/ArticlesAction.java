@@ -27,6 +27,17 @@ public class ArticlesAction extends BaseAction {
 		j.setObj(articleList);
 		return "articleList";
 	}
+	
+	public String getArticleById() {
+		JsonModel j = new JsonModel();
+		article = new Article();
+		getParams(article);
+		article = articleService.getArticleById(article.getArticleid());
+		j.setSuccess(true);
+		j.setMsg("OK");
+		j.setObj(article);
+		return "edit";
+	}
 
 	public String displayArticle() {
 		JsonModel j = new JsonModel();
@@ -54,11 +65,21 @@ public class ArticlesAction extends BaseAction {
 		JsonModel j = new JsonModel();
 		article = new Article();
 		getParams(article);
-		articleService.updateArticle(article);
+		article = articleService.getArticleById(article.getArticleid());
 		j.setObj(article);
-		return "edit";
+		return "update";
 	}
 
+	public String delArticle() {
+		article = new Article();
+		getParams(article);
+		articleService.delArticleById(article.getArticleid());
+		JsonModel j = new JsonModel();
+		articleList = articleService.getArticleAll();
+		j.setObj(articleList);
+		return "delete";
+	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
