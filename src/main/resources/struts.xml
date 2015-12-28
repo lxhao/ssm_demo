@@ -40,19 +40,29 @@
 			<result name="error">/error.jsp</result>
 			<result name="logout">/index.jsp</result>
 		</action>
+<<<<<<< HEAD
 <!-- 文章的活动 -->
+=======
+
+>>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
 		<action name="ArticlesAction" class="com.bkybk.action.ArticlesAction">
 			<result name="articleList">/articleslist.jsp</result>
 			<result name="display">/displayArticle.jsp</result>
 			<result name="edit">/articlesEditor.jsp</result>
+<<<<<<< HEAD
 			<result name="delete">/articleslist.jsp</result>
 			<result name="update">/articleslist.jsp</result>
 			
+=======
+>>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
 		</action>
+<<<<<<< HEAD
 		
 <!-- 		<action name="ContentAction" class="com.bkybk.action.ContentAction"> -->
 <!-- 			<result name="contentsList">/contentsTest.jsp</result> -->
 <!-- 		</action> -->
+=======
+>>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
 
 	</package>
 
