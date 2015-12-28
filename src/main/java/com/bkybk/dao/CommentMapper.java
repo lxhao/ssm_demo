@@ -9,11 +9,15 @@ public interface CommentMapper {
 	List<Comment> getByArticleId(Integer articleId);
 
 	// 保存评论
-	void saveContent(Comment content);
+	public void saveContent(Comment content);
 
 	// 修改评论
-	void updateContent(Comment content);
+	public void updateContent(Comment content);
 
 	// 删除评论
-	void deleteContent(Integer contentId);
+	public void deleteComment(Integer commentId);
+
+	//查找评论
+	public Comment getCommentById(Integer commentId);
+
 }

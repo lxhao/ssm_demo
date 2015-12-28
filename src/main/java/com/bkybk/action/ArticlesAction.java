@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.bkybk.model.Article;
 import com.bkybk.model.JsonModel;
 import com.bkybk.service.ArticlesService;
+import com.bkybk.service.CommentsService;
 import com.bkybk.model.Comment;
 import com.bkybk.action.CommentsAction;
 
@@ -14,7 +15,8 @@ public class ArticlesAction extends BaseAction {
 
 	private static final long serialVersionUID = -371845348379L;
 	private ArticlesService articleService;
-
+   private CommentsService commentsService;
+	
 	private List<Article> articleList;
 
 	List<Comment> commentList;
@@ -47,20 +49,18 @@ public class ArticlesAction extends BaseAction {
 
 	// 显示文章和评论
 	public String displayArticle() {
-		// JsonModel j = new JsonModel();
-		// article = new Article();
-		// getParams(article);
-		// // 根据文章Id获得文章，已经过测试可以运行
-		// article = articleService.getArticleById(article.getArticleId());
-		// j.setSuccess(true);
-		// j.setMsg("OK");
-		// j.setObj(article);
+		 JsonModel j = new JsonModel();
+		 article = new Article();
+		 getParams(article);
+		 // 根据文章Id获得文章，已经过测试可以运行
+		 article = articleService.getArticleById(article.getArticleId());
+		 j.setSuccess(true);
+		 j.setMsg("OK");
+		 j.setObj(article);
 
 		// 根据文章Id获取评论列表，不能运行
 		JsonModel j2 = new JsonModel();
-		CommentsAction commentsAction = new CommentsAction();
-		commentList = commentsAction.getByArticleId(article.getArticleId());
-		System.out.println(commentList.size());
+		commentList = commentsService.getByArticleId(article.getArticleId());
 		j2.setObj(commentList);
 		return "display";
 	}
@@ -141,6 +141,14 @@ public class ArticlesAction extends BaseAction {
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+
+	public CommentsService getCommentsService() {
+		return commentsService;
+	}
+
+	public void setCommentsService(CommentsService commentsService) {
+		this.commentsService = commentsService;
 	}
 
 }

@@ -41,14 +41,19 @@
 			<result name="logout">/index.jsp</result>
 		</action>
 
-<!-- 文章的活动 -->
+		<!-- 文章的活动 -->
 		<action name="ArticlesAction" class="com.bkybk.action.ArticlesAction">
 			<result name="articleList">/articleslist.jsp</result>
 			<result name="display">/displayArticle.jsp</result>
 			<result name="edit">/articlesEditor.jsp</result>
 			<result name="delete">/articleslist.jsp</result>
 			<result name="update">/articleslist.jsp</result>
-			
 		</action>
+		<!-- 评论的活动 -->
+		<action name="ComentsAction" class="com.bkybk.action.ComentsAction">
+			<result name="update">/ArticlesAction!displayArticle.do</result>
+			<result name="delete">/ArticlesAction!displayArticle.do</result>
+		</action>
+
 	</package>
 </struts>

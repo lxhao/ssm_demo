@@ -52,6 +52,8 @@
 		var url = "ArticlesAction!delArticle.do?articleId="+articleId;
 		window.location.href= url;
 	}
+	
+
 </script>
 </head>
 <body>

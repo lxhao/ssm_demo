@@ -33,24 +33,33 @@
 		</tr>
 
 		<tr>
-
 	</table>
 	<!-- 显示正文结束 -->
+	<script type="text/javascript">
+	function delComment(commentId){
+		var url = "CommentsAction!deleteComment.do?commentId="+commentId;
+		window.location.href= url;
+	}
 	
-	
+	function editComment(commentId){
+		var url = "CommentsAction!editComment.do?commentId="+commentId; 
+// 		var url = "CommentsAction!delComment.do?commentId="+commentId+"&vdf="+; 
+		window.location.href= url;
+	}
+	</script>
 	<!-- 显示评论 -->
 	<s:iterator value="commentList" id="item">
-	<tr>
-		<td>
-			<s:property value="#item.publishedtime"/>
-			<s:property value="#item.userId"/>
-			<s:property value="#item.contents"/>
-		</td>
-		
-		<td><a href="javascript:none;" onclick="editArticle(<s:property value="#item.articleid"/>);">编辑</a></td>
-		<td><a href="javascript:none;" onclick="delArticle(<s:property value="#item.articleid"/>);">刪除</a></td>
-		
-	</tr>
+		<tr>
+			<td><s:property value="#item.user.name" /> <s:property
+					value="#item.publishedtime" /> <s:property value="#item.contents" />
+			</td>
+
+			<td><a href="javascript:none;"
+				onclick="editComment(<s:property value="#item.commentId"/>);">编辑</a></td>
+			<td><a href="javascript:none;"
+				onclick="delComment(<s:property value="#item.commentId"/>);">刪除</a></td>
+		</tr>
 	</s:iterator>
+	
 </body>
 </html>

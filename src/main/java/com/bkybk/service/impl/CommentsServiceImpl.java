@@ -18,6 +18,10 @@ public class CommentsServiceImpl implements CommentsService {
 		return commentMapper.getByArticleId(articleId);
 	}
 
+	public Comment getCommentById(int commentId) {
+		return commentMapper.getCommentById(commentId);
+	}
+	
 	// 保存评论
 	public void saveContent(Comment content) {
 		commentMapper.saveContent(content);
@@ -29,8 +33,8 @@ public class CommentsServiceImpl implements CommentsService {
 	}
 
 	// 删除评论
-	public void deleteContent(int contentId) {
-		commentMapper.deleteContent(contentId);
+	public void deleteComment(int commentId) {
+		commentMapper.deleteComment(commentId);
 	}
 
 	public CommentMapper getCommentMapper() {
@@ -41,5 +45,7 @@ public class CommentsServiceImpl implements CommentsService {
 	public void setCommentMapper(CommentMapper commentMapper) {
 		this.commentMapper = commentMapper;
 	}
+	
+	
 
 }
