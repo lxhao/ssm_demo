@@ -21,7 +21,6 @@ public class ArticlesServiceImpl implements ArticlesService {
 
 	// 获取文章列表
 	public List<Article> getArticleAll() {
-		System.out.println(articleMapper + "/////////");
 		return articleMapper.getAll();
 	}
 
@@ -45,10 +44,9 @@ public class ArticlesServiceImpl implements ArticlesService {
 		return articleMapper.getArticleByTitle(articleStr);
 	}
 
-	// 根据标题根新文章 e
-	public int updateArticle(Article article) {
-		System.out.println("articleid=" + article.getArticleid()+"......................................................................................................");
-		return articleMapper.updateArticle(article);
+	// 根据标题根新文章 
+	public void updateArticle(Article article) {
+		articleMapper.updateArticle(article);
 	}
 
 	// 根据ID删除文章

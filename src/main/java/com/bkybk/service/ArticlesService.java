@@ -24,7 +24,7 @@ public interface ArticlesService {
 
 	// 根据标题查找文章
 
-	public int updateArticle(Article article);
+	public void updateArticle(Article article);
 
 	// 根据标题根新文章
 

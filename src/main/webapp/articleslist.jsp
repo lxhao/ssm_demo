@@ -39,17 +39,17 @@
 	}
 	
 	function displayArticle(articleId){
-		var url = "ArticlesAction!displayArticle.do?articleid="+articleId;
+		var url = "ArticlesAction!displayArticle.do?articleId="+articleId;
 		window.location.href= url;
 	}
 	
 	function editArticle(articleId){
-		var url = "ArticlesAction!editArticle.do?articleid="+articleId;
+		var url = "ArticlesAction!editArticle.do?articleId="+articleId;
 		window.location.href= url;
 	}
 	
 	function delArticle(articleId){
-		var url = "ArticlesAction!delArticle.do?articleid="+articleId;
+		var url = "ArticlesAction!delArticle.do?articleId="+articleId;
 		window.location.href= url;
 	}
 </script>
@@ -63,11 +63,11 @@
 	</tr>
 	<s:iterator value="articleList" id="item">
 	<tr>
-		<td><a href="javascript:none;" onclick="displayArticle(<s:property value="#item.articleid"/>);"><s:property value="#item.title"/></a></td>
+		<td><a href="javascript:none;" onclick="displayArticle(<s:property value="#item.articleId"/>);"><s:property value="#item.title"/></a></td>
 		<td><s:property value="#item.user.name"/></td>
-		<td><s:property value="#item.publishtime"/></td>
-		<td><a href="javascript:none;" onclick="editArticle(<s:property value="#item.articleid"/>);">编辑</a></td>
-		<td><a href="javascript:none;" onclick="delArticle(<s:property value="#item.articleid"/>);">刪除</a></td>
+		<td><s:property value="#item.publishedtime"/></td>
+		<td><a href="javascript:none;" onclick="editArticle(<s:property value="#item.articleId"/>);">编辑</a></td>
+		<td><a href="javascript:none;" onclick="delArticle(<s:property value="#item.articleId"/>);">刪除</a></td>
 		
 	</tr>
 	</s:iterator>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bkybk.dao.CommentMapper">
+
+	<!-- 评论的模型： -->
+	<!-- private Integer commentId; -->
+	<!-- private Integer userId; -->
+	<!-- private Integer articleId; -->
+	<!-- private String contents; -->
+	<!-- private Date publishedtime; -->
+	<!-- private User user; -->
+
+	<!-- 查询评论和用户的结果映射 -->
+	<resultMap id="BaseResultMap" type="com.bkybk.model.Comment">
+		<id column="commentid" property="commentId" jdbcType="INTEGER" />
+		<result column="userid" property="userId" jdbcType="INTEGER" />
+		<result column="articleid" property="articleId" jdbcType="INTEGER" />
+		<result column="content" property="contents" jdbcType="VARCHAR" />
+		<result column="cmttime" property="publishedtime" jdbcType="TIMESTAMP" />
+		<collection property="user" ofType="com.bkybk.model.User">
+
+			<id column="id" property="id" jdbcType="INTEGER" />
+			<result column="Login_name" property="loginName" jdbcType="VARCHAR" />
+			<result column="password" property="password" jdbcType="VARCHAR" />
+			<result column="name" property="name" jdbcType="VARCHAR" />
+			<result column="Email" property="email" jdbcType="VARCHAR" />
+			<result column="Phone" property="phone" jdbcType="VARCHAR" />
+			<result column="Address" property="address" jdbcType="VARCHAR" />
+			<result column="last_Login_Time" property="lastLoginTime"
+				jdbcType="TIMESTAMP" />
+			<result column="Regist_Time" property="registTime" jdbcType="TIMESTAMP" />
+			<result column="Category_id" property="categoryId" jdbcType="INTEGER" />
+		</collection>
+	</resultMap>
+
+	<!-- 评论的基本属性 -->
+	<sql id="CommentBase_Column_List">
+		commentid, userid, articleid, content, cmttime
+	</sql>
+
+	<!-- 用户的基本属性 -->
+	<sql id="UserBase_Column_List">
+		id, Login_name, password, name, Email, Phone, Address,
+		last_Login_Time,
+		Regist_Time,
+		Category_id
+	</sql>
+	<!-- 根据文章查找评论 -->
+	<select id="getByArticleId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		SELECT
+		`user`.id,
+		`user`.Login_name,
+		`user`.`password`,
+		`user`.`name`,
+		`user`.Email,
+		`user`.Phone,
+		`user`.Address,
+		`user`.last_Login_Time,
+		`user`.Regist_Time,
+		`user`.Category_id,
+		content.commentid,
+		content.userid,
+		content.articleid,
+		content.content,
+		content.cmttime
+		FROM `user`,
+		(SELECT * FROM content WHERE
+		content.articleid=#{articleId,jdbcType=INTEGER}
+		) AS content
+		WHERE
+		`user`.id = content.userid;
+	</select>
+
+	<!--插入评论 -->
+	<insert id="saveContent" parameterType="com.bkybk.model.Comment">
+		INSERT into content
+		(commentid, userid, articleid, content, cmttime)
+		values
+		(#{commentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
+		#{articleId,jdbcType=INTEGER}，
+		#{contents, jdbcType=VARCHAR},
+		#{publishedtime, jdbcType=TIMESTAMP}
+	</insert>
+
+	<!-- 修改评论 -->
+	<update id="updateContent" parameterType="com.bkybk.model.Comment">
+		UPDATE content
+		set
+		commentid=#{commentId,jdbcType=INTEGER}, userId=#{userId,
+		jdbcType=INTEGER}，
+		articleid=#{articleId, jdbcType=INTEGER}, content=#{contents,
+		jdbcType=VARCHAR},
+		cmttime=nowtime()
+		where
+		content.commentid =
+		#{commentId,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- 删除评论 -->
+	<delete id="deleteContent" parameterType="java.lang.Integer">
+		delete from content
+		where commentid=#{contentId,jdbcType=INTEGER}
+	</delete>
+</mapper>
+
+<!-- CommentMapper.java -->
+<!-- 	// 根据文章Id查找指定文章的评论 -->
+<!-- 	List<Comment> getByArticleId(Integer articleId); -->
+
+<!-- 	// 保存评论 -->
+<!-- 	void saveContent(Comment content); -->
+
+<!-- 	// 修改评论 -->
+<!-- 	void updateContent(Comment content); -->
+
+<!-- 	// 删除评论 -->
+<!-- 	void deleteContent(Integer contentId); -->

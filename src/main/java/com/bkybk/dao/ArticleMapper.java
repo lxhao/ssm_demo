@@ -19,7 +19,7 @@ public interface ArticleMapper {
 	List<Article> getArticleByTitle(String articleStr);
 
 	// 修改文章
-	int updateArticle(Article article);
+	void updateArticle(Article article);
 
 	// 删除文章
 	void delArticleById(Integer articleId);

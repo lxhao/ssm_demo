@@ -4,11 +4,11 @@
 
 	<!-- 查询文章的结果映射 -->
 	<resultMap id="BaseArticleResultMap" type="com.bkybk.model.Article">
-		<id column="articleid" property="articleid" jdbcType="INTEGER" />
-		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<id column="articleid" property="articleId" jdbcType="INTEGER" />
+		<result column="userid" property="userId" jdbcType="INTEGER" />
 		<result column="title" property="title" jdbcType="VARCHAR" />
 		<result column="content" property="content" jdbcType="VARCHAR" />
-		<result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+		<result column="publishtime" property="publishedtime" jdbcType="TIMESTAMP" />
 	</resultMap>
 
 	<!-- 查询用户的结果映射 -->
@@ -28,11 +28,11 @@
 
 	<!-- 查询用户和文章的结果映射 -->
 	<resultMap id="ArticleResultMap" type="com.bkybk.model.Article">
-		<id column="articleid" property="articleid" jdbcType="INTEGER" />
-		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<id column="articleid" property="articleId" jdbcType="INTEGER" />
+		<result column="userid" property="userId" jdbcType="INTEGER" />
 		<result column="title" property="title" jdbcType="VARCHAR" />
 		<result column="content" property="content" jdbcType="VARCHAR" />
-		<result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+		<result column="publishtime" property="publishedtime" jdbcType="TIMESTAMP" />
 		<collection property="user" ofType="com.bkybk.model.User">
 
 			<id column="id" property="id" jdbcType="INTEGER" />
@@ -83,8 +83,8 @@
 	<insert id="saveArticle" parameterType="com.bkybk.model.Article">
 		INSERT into article (articleid, userid, title, content, publishtime)
 		values
-		(#{articleid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}，
-		#{content, jdbcType=VARCHAR}, #{publishtime, jdbcType=TIMESTAMP}
+		(#{articleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}，
+		#{content, jdbcType=VARCHAR}, #{publishedtime, jdbcType=TIMESTAMP}
 	</insert>
 
 	<!-- 根据标题查询文章 -->
@@ -97,12 +97,10 @@
 	<!-- 修改文章 -->
 	<update id="updateArticle" parameterType="com.bkybk.model.Article">
 		UPDATE article
-		set articleid=#{articleId,jdbcType=INTEGER}, userid=#{userid,
-		jdbcType=INTEGER}，
-		title=#{title, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR},
-		publishtime=#{publishtime, jdbcType=TIMESTAMP}
+		set articleid=#{articleId,jdbcType=INTEGER}, userid=#{userId,jdbcType=INTEGER},
+		title=#{title, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR}
 		where
-		article.articleid = #{articleid, jdbcType=INTEGER}
+		articleid = #{articleId, jdbcType=INTEGER}
 	</update>
 
 	<!-- 删除文章 -->
