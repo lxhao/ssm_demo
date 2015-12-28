@@ -1,6 +1,5 @@
 package com.bkybk.action;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,8 @@ public class ArticlesAction extends BaseAction {
 	private ArticlesService articleService;
 
 	private List<Article> articleList;
+
+	List<Comment> commentList;
 
 	private Article article;
 
@@ -46,20 +47,21 @@ public class ArticlesAction extends BaseAction {
 
 	// 显示文章和评论
 	public String displayArticle() {
-		JsonModel j = new JsonModel();
-		article = new Article();
-		getParams(article);
-		// 根据文章Id获得文章，已经过测试可以运行
-		article = articleService.getArticleById(article.getArticleId());
-		j.setSuccess(true);
-		j.setMsg("OK");
-		j.setObj(article);
+		// JsonModel j = new JsonModel();
+		// article = new Article();
+		// getParams(article);
+		// // 根据文章Id获得文章，已经过测试可以运行
+		// article = articleService.getArticleById(article.getArticleId());
+		// j.setSuccess(true);
+		// j.setMsg("OK");
+		// j.setObj(article);
 
 		// 根据文章Id获取评论列表，不能运行
-		 List<Comment> commentList;
-		 CommentsAction commentsAction = new CommentsAction();
-		 commentList = commentsAction.getByArticleId(article.getArticleId());
-		 j.setObj(commentList);
+		JsonModel j2 = new JsonModel();
+		CommentsAction commentsAction = new CommentsAction();
+		commentList = commentsAction.getByArticleId(article.getArticleId());
+		System.out.println(commentList.size());
+		j2.setObj(commentList);
 		return "display";
 	}
 
@@ -83,15 +85,12 @@ public class ArticlesAction extends BaseAction {
 		// 得到文章Id，修改后的标题和内容，根据Id从数据库查到完整的文章
 		Article articleReceiveId = new Article();
 		getParams(articleReceiveId);
-		System.out.println(articleReceiveId.getArticleId() + "-----");
-		
+
 		article = articleService.getArticleById(articleReceiveId.getArticleId());
 
 		// 修改文章的标题和文章内容
 		article.setTitle(articleReceiveId.getTitle());
 		article.setContent(articleReceiveId.getContent());
-
-
 
 		// 更新文章数据
 		articleService.updateArticle(article);
@@ -134,6 +133,14 @@ public class ArticlesAction extends BaseAction {
 
 	public void setArticle(Article article) {
 		this.article = article;
+	}
+
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
 
 }

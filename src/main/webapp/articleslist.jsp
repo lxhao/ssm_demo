@@ -39,16 +39,7 @@
 	}
 	
 	function displayArticle(articleId){
-<<<<<<< HEAD
 		var url = "ArticlesAction!displayArticle.do?articleId="+articleId;
-=======
-		var url = "ArticlesAction!displayArticle.do?articleid="+articleId;
-		window.location.href= url;
-	}
-	
-	function editArticle(articleId){
-		var url = "ArticlesAction!editArticle.do?articleid="+articleId;
->>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
 		window.location.href= url;
 	}
 	
@@ -72,22 +63,11 @@
 	</tr>
 	<s:iterator value="articleList" id="item">
 	<tr>
-<<<<<<< HEAD
 		<td><a href="javascript:none;" onclick="displayArticle(<s:property value="#item.articleId"/>);"><s:property value="#item.title"/></a></td>
-=======
-		<td><a href="javascript:none;" onclick="displayArticle(<s:property value="#item.articleid"/>);"><s:property value="#item.title"/></a></td>
->>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
 		<td><s:property value="#item.user.name"/></td>
 		<td><s:property value="#item.publishedtime"/></td>
 		<td><a href="javascript:none;" onclick="editArticle(<s:property value="#item.articleId"/>);">编辑</a></td>
 		<td><a href="javascript:none;" onclick="delArticle(<s:property value="#item.articleId"/>);">刪除</a></td>
-		
-<<<<<<< HEAD
-=======
-		<td>
-			<a href="javascript:none;" onclick="editArticle(<s:property value="#item.articleid"/>);">编辑</a>
-		</td>
->>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
 	</tr>
 	</s:iterator>
 
