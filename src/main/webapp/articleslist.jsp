@@ -56,12 +56,13 @@
 
 </script>
 </head>
-<body style="background:url(img/00.jpg)">
+<body style="background: #ccc">
 <!-- <body> -->
 <!-- <img src=img/00.jpg alt="waiting" style="top :0px; left: 0px; width: 100%; heitht: 100%"/> -->
 <table border="1" frame=void rules=none width=800 align=center>
 <p style="font-family: verdana; font-size: 180%; color: blue">
-	文章列表 <br>
+	文章列表 <br/>
+	<br />
 	<tr width=800 align=center>
 		<th>文章标题</th>
 		<th>作者</th>
@@ -78,13 +79,14 @@
 	</s:iterator>
 
 </table>
-
+<br />
+<br />
+<br />
+<br />
 <div id="pageStyle" width=800 align=center>
-	<a href="javascript:none;" onclick="goFirstPage(<s:property value="user.page"/>);">首页</a>
-	<a href="javascript:none;" onclick="goUpPage(<s:property value="user.page"/>);">上一页</a>
-	<a href="javascript:none;" onclick="goDownPage(<s:property value="user.page"/>);">下一页</a>
-	<a href="javascript:none;" onclick="goLastPage('最后一页');">最后一页</a>
-</div>
-
-</body>
+	<a href="javascript:none;" onclick="oFirstPage(<s:property value="user.page"/>);">首页</a>
+	<a href="javascript:none;" onclick="oUpPage(<s:property value="user.page"/>);">上一页</a>
+	<a href="javascript:none;" onclick="oDownPage(<s:property value="user.page"/>);">下一页</a>
+	<a href="javascript:none;" onclick="oLastPage('最后一页');">最后一页</a>
+	<a href="http://localhost:8080/s2sm/">返回首页</a>
 </html>

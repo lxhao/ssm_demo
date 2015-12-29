@@ -16,12 +16,18 @@
 	<form>
 		<table border="1" frame=void rules=none width=800 align=center>
 			<tr align=center>
-				<td style="color: #FF6600; font-size: 30px;"><s:property
+				<td style="color: #FF6600; font-size: 30px;"" <s:property
 						value="article.title" /></td>
+			</tr>
+			<tr>
+				<input type="hidden" name="id" />
 			</tr>
 			<tr align=center>
 				<td>作者：<s:property value="article.user.name" /> 发布时间：<s:property
 						value="article.publishedtime" /></td>
+			</tr>
+			<tr>
+				<input type="hidden" name="id" />
 			</tr>
 			<tr>
 				<td style="color: #FF6600; font-family: '微软雅黑'; text-indent: 30px"><s:property
@@ -31,6 +37,7 @@
 			<tr>
 		</table>
 	</form>
+	<br />
 	<!-- 显示正文结束 -->
 	<script type="text/javascript">
 	function delComment(commentId, articleId){
@@ -47,44 +54,42 @@
 		edit.style.display="inline";
 	}
 	</script>
-	
-	
-	
+
+
+
 	<!-- 显示评论 -->
-	<table border="1" frame=void rules=none width=400 align=center>
+	<table border="1" frame=void rules=none width=800 align=center>
 		<s:iterator value="commentList" id="item">
-			<tr align=right>
+			<tr align=center>
 				<td><s:property value="#item.user.name+'：'" /> <s:property
 						value="#item.contents+' '" /> <s:property
 						value="#item.publishedtime" /></td>
-
-				<div id="edit" style="border: 1px solid #000">
-					<span style="width: 200; height: 200; display: none"></span>
-					<input type="text" size="50" >
-					<a href="javascript:none;"
-						onclick="editComment(<s:property value="#item.commentId"/>,<s:property value="#item.articleId"/>);">保存</a>
-				</div>
-				
-				<td><a href="javascript:none;"
-					onclick="displayEdit()">编辑</a></td>
+				<!-- 				<div id="edit" style="border: 1px solid #000"> -->
+				<%-- 					<span style="width: 200; height: 200; visibility: hidden"></span> <input --%>
+				<!-- 						type="text" size="50" name="content"> <a -->
+				<!-- 						href="javascript:none;" -->
+				<%-- 						onclick="editComment(<s:property value="#item.commentId"/>,<s:property value="#item.articleId"/>);">保存</a> --%>
+				<!-- 				</div> -->
+				<!-- 				<td><a href="javascript:none;" onclick="displayEdit()">编辑</a></td> -->
 				<td><a href="javascript:none;"
 					onclick="delComment(<s:property value="#item.commentId"/>,<s:property value="#item.articleId"/>);">刪除</a></td>
 			</tr>
 		</s:iterator>
 	</table>
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	<!--发表评论target="save" -->
-	<form action="CommentsAction!saveContent.do" method="post"
+	<form align=center action="CommentsAction!saveContent.do" method="post"
 		target="_self">
 		<input type="hidden" name="articleId"
 			value="<s:property value="article.articleId"/>"> <input
 			type="hidden" name="userId"
 			value="<s:property value="article.user.id"/>">
-		<table align=center width=800>
+		<table align=center width=800 frame=void rules=none>
 			<tr>
 				<td width=500><input size=60 name="contents"
 					placeholder="<s:property value="article.user.name"/>的评论:"></td>
@@ -102,6 +107,9 @@
 	<!-- 	<iframe style="display: none" id="rfFrame" name="rfFrame" -->
 	<!-- 		src="about:blank"></iframe> -->
 	<!--hello.php页面返回的数据 显示在iframe 中-->
-
+	<a align=center href="ArticlesAction!getArticlesAll.do">返回文章列表</a>
+	<br />
+	<br />
+	<br />
 </body>
 </html>
