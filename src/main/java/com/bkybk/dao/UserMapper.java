@@ -21,7 +21,7 @@ public interface UserMapper {
 
 	User selectByUser(User user);
 
-	boolean findByName(String loginName);
+	User findByName(String loginName);
 
 	List<User> getAll();
 

@@ -2,7 +2,11 @@
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://git.oschina.net/rayleigh/Demo.git
 eclipse.preferences.version=1
+encoding//src/main/java/com/bkybk/action/ArticlesAction.java=UTF-8
+encoding//src/main/java/com/bkybk/action/CommentsAction.java=UTF-8
 encoding//src/main/java/com/bkybk/model/BaseVo.java=UTF-8
+encoding//src/main/java/com/bkybk/service/CommentsService.java=UTF-8
+encoding//src/main/java/com/bkybk/service/impl/CommentsServiceImpl.java=UTF-8
 encoding//src/main/java/com/bkybk/service/impl/UserServiceImpl.java=UTF-8
 encoding//ui/base/bgindex.jsp=UTF-8
 encoding//ui/base/index.jsp=UTF-8

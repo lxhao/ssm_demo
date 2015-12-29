@@ -26,7 +26,7 @@ public class ArticlesAction extends BaseAction {
 		return article;
 	}
 
-	// 得到所有的文章
+	// 寰楀埌鎵�湁鐨勬枃绔�	
 	public String getArticlesAll() {
 		JsonModel j = new JsonModel();
 		articleList = articleService.getArticleAll();
@@ -34,7 +34,7 @@ public class ArticlesAction extends BaseAction {
 		return "articleList";
 	}
 
-	// 根据文章Id查询文章
+	// 鏍规嵁鏂囩珷Id鏌ヨ鏂囩珷
 	public String getArticleById() {
 		JsonModel j = new JsonModel();
 		article = new Article();
@@ -46,25 +46,25 @@ public class ArticlesAction extends BaseAction {
 		return "edit";
 	}
 
-	// 显示文章和评论
+	// 鏄剧ず鏂囩珷鍜岃瘎璁�	
 	public String displayArticle() {
 		JsonModel j = new JsonModel();
 		article = new Article();
 		getParams(article);
-		// 根据文章Id获得文章
+		// 鏍规嵁鏂囩珷Id鑾峰緱鏂囩珷
 		article = articleService.getArticleById(article.getArticleId());
 		j.setSuccess(true);
 		j.setMsg("OK");
 		j.setObj(article);
 
-		// 根据文章Id获取评论列表
+		// 鏍规嵁鏂囩珷Id鑾峰彇璇勮鍒楄〃
 		JsonModel j2 = new JsonModel();
 		commentList = commentsService.getByArticleId(article.getArticleId());
 		j2.setObj(commentList);
 		return "display";
 	}
 
-	// 编辑文章
+	// 缂栬緫鏂囩珷
 	public String editArticle() {
 		JsonModel j = new JsonModel();
 		article = new Article();
@@ -76,28 +76,28 @@ public class ArticlesAction extends BaseAction {
 		return "edit";
 	}
 
-	// 根据编辑页面提交的数据更新文章
+	// 鏍规嵁缂栬緫椤甸潰鎻愪氦鐨勬暟鎹洿鏂版枃绔�	
 	public String Update() {
 		JsonModel j = new JsonModel();
 
-		// 得到文章Id，修改后的标题和内容，根据Id从数据库查到完整的文章
+		// 寰楀埌鏂囩珷Id锛屼慨鏀瑰悗鐨勬爣棰樺拰鍐呭锛屾牴鎹甀d浠庢暟鎹簱鏌ュ埌瀹屾暣鐨勬枃绔�		
 		Article articleReceiveId = new Article();
 		getParams(articleReceiveId);
 
 		article = articleService.getArticleById(articleReceiveId.getArticleId());
 
-		// 修改文章的标题和文章内容
+		// 淇敼鏂囩珷鐨勬爣棰樺拰鏂囩珷鍐呭
 		article.setTitle(articleReceiveId.getTitle());
 		article.setContent(articleReceiveId.getContent());
 
-		// 更新文章数据
+		// 鏇存柊鏂囩珷鏁版嵁
 		articleService.updateArticle(article);
 		articleList = articleService.getArticleAll();
 		j.setObj(articleList);
 		return "update";
 	}
 
-	// 删除文章，可以运行，但需要设置用户权限
+	// 鍒犻櫎鏂囩珷锛屽彲浠ヨ繍琛岋紝浣嗛渶瑕佽缃敤鎴锋潈闄�	
 	public String delArticle() {
 		article = new Article();
 		getParams(article);
