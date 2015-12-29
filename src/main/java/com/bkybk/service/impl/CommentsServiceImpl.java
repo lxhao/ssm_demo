@@ -13,7 +13,7 @@ import com.bkybk.dao.CommentMapper;
 public class CommentsServiceImpl implements CommentsService {
 	private CommentMapper commentMapper;
 
-	// 根据文章Id查找指定文章的评论
+	// 鏍规嵁鏂囩珷Id鏌ユ壘鎸囧畾鏂囩珷鐨勮瘎璁�	
 	public List<Comment> getByArticleId(int articleId) {
 		return commentMapper.getByArticleId(articleId);
 	}
@@ -22,17 +22,17 @@ public class CommentsServiceImpl implements CommentsService {
 		return commentMapper.getCommentById(commentId);
 	}
 	
-	// 保存评论
+	// 淇濆瓨璇勮
 	public void saveContent(Comment content) {
 		commentMapper.saveContent(content);
 	}
 
-	// 修改评论
+	// 淇敼璇勮
 	public void updateComment(Comment content) {
 		commentMapper.updateComment(content);
 	}
 
-	// 删除评论
+	// 鍒犻櫎璇勮
 	public void deleteComment(int commentId) {
 		commentMapper.deleteComment(commentId);
 	}
