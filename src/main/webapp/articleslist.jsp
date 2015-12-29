@@ -56,7 +56,7 @@
 
 </script>
 </head>
-<body style="background:url(img/portfolio/circus.png">
+<body style="background:url(img/00.jpg"; background-repeat:repeat-x>
 <table border="1" frame=void rules=none width=800 align=center>
 <p style="font-family: verdana; font-size: 180%; color: blue">
 	文章列表 <br>

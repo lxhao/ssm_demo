@@ -10,7 +10,7 @@
 <title><s:property value="article.title" /></title>
 </head>
 <!-- 显示正文 -->
-<body style="background:url(img/portfolio/cabin.png)" >
+<body style="background:url(img/background.png)" >
 
 	<h1>美文欣赏</h1>
 <form>
@@ -57,7 +57,7 @@
 	</s:iterator>
 	</table>
 	<!--发表评论target="save" -->
-	<form action="CommentsAction!saveContent.do" method="post"  >
+	<form action="CommentsAction!saveContent.do" method="post"  target="_self">
 		<input type="hidden" name="articleId"
 			value="<s:property value="article.articleId"/>"> <input
 			type="hidden" name="userId"
