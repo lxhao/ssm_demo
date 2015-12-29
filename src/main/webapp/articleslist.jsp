@@ -56,7 +56,9 @@
 
 </script>
 </head>
-<body style="background:url(img/00.jpg"; background-repeat:repeat-x>
+<body style="background:url(img/00.jpg)">
+<!-- <body> -->
+<!-- <img src=img/00.jpg alt="waiting" style="top :0px; left: 0px; width: 100%; heitht: 100%"/> -->
 <table border="1" frame=void rules=none width=800 align=center>
 <p style="font-family: verdana; font-size: 180%; color: blue">
 	文章列表 <br>
