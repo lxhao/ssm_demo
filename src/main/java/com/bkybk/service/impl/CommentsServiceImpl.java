@@ -28,8 +28,8 @@ public class CommentsServiceImpl implements CommentsService {
 	}
 
 	// 修改评论
-	public void updateContent(Comment content) {
-		commentMapper.updateContent(content);
+	public void updateComment(Comment content) {
+		commentMapper.updateComment(content);
 	}
 
 	// 删除评论

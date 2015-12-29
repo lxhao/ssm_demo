@@ -22,6 +22,7 @@ import org.apache.commons.beanutils.converters.SqlTimeConverter;
 import org.apache.commons.beanutils.converters.SqlTimestampConverter;
 import org.apache.commons.beanutils.converters.StringConverter;
 
+
 public class BeanUtil extends BeanUtils {
 
 	static {
@@ -49,6 +50,8 @@ public class BeanUtil extends BeanUtils {
 	}
 
 	public static void copyProperties(Object target, Object source) {
+		System.err.println(target);
+		System.err.println(source);
 		try {
 			BeanUtils.copyProperties(target, source);
 		} catch (IllegalAccessException e) {

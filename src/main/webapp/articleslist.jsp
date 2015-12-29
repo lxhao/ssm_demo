@@ -56,15 +56,17 @@
 
 </script>
 </head>
-<body>
-<table border="1">
-	<tr>
+<body style="background:url(img/portfolio/circus.png">
+<table border="1" frame=void rules=none width=800 align=center>
+<p style="font-family: verdana; font-size: 180%; color: blue">
+	文章列表 <br>
+	<tr width=800 align=center>
 		<th>文章标题</th>
 		<th>作者</th>
 		<th>最后修改时间</th>
-	</tr>
+	</tr >
 	<s:iterator value="articleList" id="item">
-	<tr>
+	<tr width=800 align=center>
 		<td><a href="javascript:none;" onclick="displayArticle(<s:property value="#item.articleId"/>);"><s:property value="#item.title"/></a></td>
 		<td><s:property value="#item.user.name"/></td>
 		<td><s:property value="#item.publishedtime"/></td>
@@ -75,7 +77,7 @@
 
 </table>
 
-<div id="pageStyle">
+<div id="pageStyle" width=800 align=center>
 	<a href="javascript:none;" onclick="goFirstPage(<s:property value="user.page"/>);">首页</a>
 	<a href="javascript:none;" onclick="goUpPage(<s:property value="user.page"/>);">上一页</a>
 	<a href="javascript:none;" onclick="goDownPage(<s:property value="user.page"/>);">下一页</a>

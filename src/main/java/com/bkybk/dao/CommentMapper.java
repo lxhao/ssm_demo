@@ -12,7 +12,7 @@ public interface CommentMapper {
 	public void saveContent(Comment content);
 
 	// 修改评论
-	public void updateContent(Comment content);
+	public void updateComment(Comment content);
 
 	// 删除评论
 	public void deleteComment(Integer commentId);

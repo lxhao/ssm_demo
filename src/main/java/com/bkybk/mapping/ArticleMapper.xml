@@ -75,16 +75,19 @@
 	<!-- 根据ID查询文章 -->
 	<select id="getArticleById" resultMap="ArticleResultMap"
 		parameterType="java.lang.Integer">
-		SELECT * from article,`user` where articleid = #{articleId,jdbcType=INTEGER}
+		SELECT * from article,`user` where articleid =
+		#{articleId,jdbcType=INTEGER}
 		and `user`.id = article.userid
 	</select>
 
 	<!-- 保存文章 -->
 	<insert id="saveArticle" parameterType="com.bkybk.model.Article">
-		INSERT into article (articleid, userid, title, content, publishtime)
+		INSERT into article
+		(userid, title, content)
 		values
-		(#{articleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}，
-		#{content, jdbcType=VARCHAR}, #{publishedtime, jdbcType=TIMESTAMP}
+		(#{userId,jdbcType=INTEGER},
+		#{title,jdbcType=VARCHAR},
+		#{content,jdbcType=VARCHAR});
 	</insert>
 
 	<!-- 根据标题查询文章 -->
@@ -97,10 +100,14 @@
 	<!-- 修改文章 -->
 	<update id="updateArticle" parameterType="com.bkybk.model.Article">
 		UPDATE article
-		set articleid=#{articleId,jdbcType=INTEGER}, userid=#{userId,jdbcType=INTEGER},
-		title=#{title, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR}
+		set
+		articleid=#{articleId,jdbcType=INTEGER},
+		userid=#{userId,jdbcType=INTEGER},
+		title=#{title, jdbcType=VARCHAR},
+		content=#{content, jdbcType=VARCHAR}
 		where
-		articleid = #{articleId, jdbcType=INTEGER}
+		articleid = #{articleId,
+		jdbcType=INTEGER}
 	</update>
 
 	<!-- 删除文章 -->

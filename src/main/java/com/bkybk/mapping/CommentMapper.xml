@@ -16,7 +16,7 @@
 		<result column="userid" property="userId" jdbcType="INTEGER" />
 		<result column="articleid" property="articleId" jdbcType="INTEGER" />
 		<result column="content" property="contents" jdbcType="VARCHAR" />
-		<result column="cmttime" property="publishedtime" jdbcType="TIMESTAMP" />
+		<result column="cmttime" property="publishedTime" jdbcType="TIMESTAMP" />
 		<collection property="user" ofType="com.bkybk.model.User">
 
 			<id column="id" property="id" jdbcType="INTEGER" />
@@ -72,26 +72,21 @@
 		`user`.id = content.userid;
 	</select>
 
-	<!--插入评论 -->
+	<!--插入评论 ,评论Id自增，时间自动获取-->
 	<insert id="saveContent" parameterType="com.bkybk.model.Comment">
 		INSERT into content
-		(commentid, userid, articleid, content, cmttime)
+		(userid, articleid, content)
 		values
-		(#{commentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
-		#{articleId,jdbcType=INTEGER}，
-		#{contents, jdbcType=VARCHAR},
-		#{publishedtime, jdbcType=TIMESTAMP};
+		(#{userId, jdbcType=INTEGER},
+		#{articleId, jdbcType=INTEGER},
+		#{contents, jdbcType=VARCHAR});
 	</insert>
 
 	<!-- 修改评论 -->
-	<update id="updateContent" parameterType="com.bkybk.model.Comment">
+	<update id="updateComment" parameterType="com.bkybk.model.Comment">
 		UPDATE content
 		set
-		commentid=#{commentId,jdbcType=INTEGER}, userId=#{userId,
-		jdbcType=INTEGER}，
-		articleid=#{articleId, jdbcType=INTEGER}, content=#{contents,
-		jdbcType=VARCHAR},
-		cmttime=nowtime()
+		content=#{contents,	 jdbcType=VARCHAR}
 		where
 		content.commentid =
 		#{commentId,jdbcType=INTEGER};
@@ -99,11 +94,11 @@
 
 
 	<!-- 删除评论 -->
-	<delete id="deleteCommment" parameterType="java.lang.Integer">
+	<delete id="deleteComment" parameterType="java.lang.Integer">
 		delete from content
 		where commentid=#{contentId,jdbcType=INTEGER};
 	</delete>
-	
+
 	<!--查找评论 -->
 	<select id="getCommentById" parameterType="java.lang.Integer">
 		select from content
@@ -112,14 +107,14 @@
 </mapper>
 
 <!-- CommentMapper.java -->
-<!-- 	// 根据文章Id查找指定文章的评论 -->
-<!-- 	List<Comment> getByArticleId(Integer articleId); -->
+<!-- // 根据文章Id查找指定文章的评论 -->
+<!-- List<Comment> getByArticleId(Integer articleId); -->
 
-<!-- 	// 保存评论 -->
-<!-- 	void saveContent(Comment content); -->
+<!-- // 保存评论 -->
+<!-- void saveContent(Comment content); -->
 
-<!-- 	// 修改评论 -->
-<!-- 	void updateContent(Comment content); -->
+<!-- // 修改评论 -->
+<!-- void updateContent(Comment content); -->
 
-<!-- 	// 删除评论 -->
-<!-- 	void deleteContent(Integer contentId); -->
+<!-- // 删除评论 -->
+<!-- void deleteContent(Integer contentId); -->

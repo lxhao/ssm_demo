@@ -366,6 +366,8 @@
                                     </strong>
                                 </li>
                             </ul>
+                            
+                            
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
