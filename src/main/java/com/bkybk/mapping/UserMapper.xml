@@ -60,7 +60,7 @@
 		</where>
 	</sql>
 
-	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.Boolean">
+	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from user

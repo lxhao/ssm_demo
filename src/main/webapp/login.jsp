@@ -36,7 +36,7 @@
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input name="loginName" type="text" class="form-control" onblur="validatorLoginName"  placeholder="root@admin.com">           
+		              	<input name="loginName" type="text"  class="form-control" onblur="validatorLoginName"  placeholder="root@admin.com">           
 		          	</div>	
 	        	</div>
 	        	<div class="form-group">

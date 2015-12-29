@@ -1,6 +1,3 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
 
@@ -41,16 +38,15 @@
 		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>
 	
-<!-- 	<servlet> -->
-<!--     <description>This is the description of my J2EE component</description> -->
-<!--     <display-name>This is the display name of my J2EE component</display-name> -->
-<!--     <servlet-name>ValidateName</servlet-name> -->
-<!--     <servlet-class>com.wuliu.test.ValidateName</servlet-class> -->
-<!--     </servlet> -->
+	<servlet>
+    
+    <servlet-name>ValidateName</servlet-name>
+    <servlet-class>com.bkybk.java.ValidateName</servlet-class>
+    </servlet>
 
-<!--   	<servlet-mapping> -->
-<!--     <servlet-name>ValidateName</servlet-name> -->
-<!--     <url-pattern>/ValidateName</url-pattern> -->
-<!--   	</servlet-mapping> -->
+  	<servlet-mapping>
+    <servlet-name>ValidateName</servlet-name>
+    <url-pattern>/ValidateName</url-pattern>
+  	</servlet-mapping>
 
 </web-app>
