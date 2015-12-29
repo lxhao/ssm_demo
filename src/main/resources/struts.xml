@@ -29,16 +29,17 @@
 
 	<package name="basePackage" extends="struts-default">
 		<action name="userAction" class="com.bkybk.action.UserAction">
-			<result name="success">/jsp/user/index.jsp</result>
-			<result name="userList">/jsp/user/userList.jsp</result>
-			<result name="add">/jsp/user/addUser.jsp</result>
+			<result name="success">/userControl.jsp</result>
+			<result name="userList">/userList.jsp</result>
+			<result name="add">/addUser.jsp</result>
 			<result name="goList" type="redirectAction">userAction!getUserAll.do</result>
 
 		</action>
 		<action name="LoginAction" class="com.bkybk.action.LoginAction">
-			<result name="login">/welcome.jsp</result>
+			<result name="login">/bgindex.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="logout">/index.jsp</result>
+			<result name="superUser">/bgindexs.jsp</result>
 		</action>
 
 		<!-- 文章的活动 -->
@@ -49,6 +50,8 @@
 			<result name="delete">/articleslist.jsp</result>
 			<result name="update">/articleslist.jsp</result>
 			<result name="publish">/articleslist.jsp</result>
+			<result name="prePublish">/prePublish.jsp</result>
+			
 		</action>
 		<!-- 评论的活动 -->
 		<action name="CommentsAction" class="com.bkybk.action.CommentsAction">

@@ -19,15 +19,15 @@ public class CommentsAction extends BaseAction {
 	private ArticlesService articlesService;
 	private Article article;
 
-	// 鏍规嵁鏂囩珷Id鏌ユ壘鎸囧畾鏂囩珷鐨勮瘎璁�	
+	// 根据文章Id查找指定文章的评论
 	List<Comment> getByArticleId(int articleId) {
 		return commentsService.getByArticleId(articleId);
 	}
 
-	// 淇濆瓨璇勮,
+	// 保存评论,
 	public String saveContent() {
 		comment = new Comment();
-		// 鎺ユ敹userId, articleId, contents
+		// 接收userId, articleId, contents
 		getParams(comment);
 		commentsService.saveContent(comment);
 		
@@ -44,10 +44,10 @@ public class CommentsAction extends BaseAction {
 		return "save";
 	}
 
-	// 淇敼璇勮
+	// 修改评论
 	public String updateComment() {
 
-		// 鎺ユ敹userId, articleId, contents
+		// 接收userId, articleId, contents
 		comment = new Comment();
 		getParams(comment);
 		commentsService.updateComment(comment);
@@ -66,7 +66,7 @@ public class CommentsAction extends BaseAction {
 	}
 
 	//
-	// 鍒犻櫎璇勮
+	// 删除评论
 	public String deleteComment() {
 		JsonModel j = new JsonModel();
 		comment = new Comment();

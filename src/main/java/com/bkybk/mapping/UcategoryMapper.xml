@@ -17,13 +17,16 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from ucategory
+		delete from
+		ucategory
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.bkybk.model.Ucategory">
-		insert into ucategory (id, name, description
+		insert into ucategory (id,
+		name, description
 		)
-		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+		values (#{id,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR},
 		#{description,jdbcType=VARCHAR}
 		)
 	</insert>
@@ -67,7 +70,8 @@
 	<update id="updateByPrimaryKey" parameterType="com.bkybk.model.Ucategory">
 		update ucategory
 		set name = #{name,jdbcType=VARCHAR},
-		description = #{description,jdbcType=VARCHAR}
+		description =
+		#{description,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 

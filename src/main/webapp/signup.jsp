@@ -33,7 +33,7 @@
 	          <div class="square"></div>
 	          <h1>用户注册</h1>
 	        </header>
-		<form action="userAction!saveOrUpdate.do" class="templatemo-login-form" onsubmit="return validateform()">
+		<form action="login.jsp" class="templatemo-login-form" onsubmit="return validateform()">
 				<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"></div>	        		

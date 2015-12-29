@@ -53,7 +53,17 @@ public class LoginAction extends BaseAction {
 			j.setMsg(e.getMessage());
 
 		}
-		return user == null ? ERROR : "login";
+		
+		if(user==null){
+			return ERROR;
+		}
+		else if(user.getId()==4){
+			return "superUser";
+		}
+		else 
+		{
+			return "login";
+		}
 	}
 	
 	public String logout() {

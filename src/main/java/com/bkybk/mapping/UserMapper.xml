@@ -15,7 +15,8 @@
 		<result column="Category_id" property="categoryId" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, Login_name, password, name, Email, Phone, Address, last_Login_Time,
+		id, Login_name, password, name, Email, Phone, Address,
+		last_Login_Time,
 		Regist_Time,
 		Category_id
 	</sql>
@@ -60,7 +61,7 @@
 		</where>
 	</sql>
 
-	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.Boolean">
 		select
 		<include refid="Base_Column_List" />
 		from user
@@ -80,14 +81,19 @@
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.bkybk.model.User">
-		insert into user (id, Login_name, password,
+		insert into user (id,
+		Login_name, password,
 		name, Email, Phone,
-		Address, last_Login_Time, Regist_Time,
+		Address, last_Login_Time,
+		Regist_Time,
 		Category_id)
-		values (#{id,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR},
+		values (#{id,jdbcType=INTEGER},
+		#{loginName,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
-		#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
-		#{address,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP},
+		#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+		#{phone,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{lastLoginTime,jdbcType=TIMESTAMP},
 		#{registTime,jdbcType=TIMESTAMP},
 		#{categoryId,jdbcType=INTEGER})
 	</insert>
@@ -194,21 +200,29 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.bkybk.model.User">
 		update user
-		set Login_name = #{loginName,jdbcType=VARCHAR},
-		password = #{password,jdbcType=VARCHAR},
+		set
+		Login_name = #{loginName,jdbcType=VARCHAR},
+		password =
+		#{password,jdbcType=VARCHAR},
 		name = #{name,jdbcType=VARCHAR},
-		Email = #{email,jdbcType=VARCHAR},
+		Email =
+		#{email,jdbcType=VARCHAR},
 		Phone = #{phone,jdbcType=VARCHAR},
-		Address = #{address,jdbcType=VARCHAR},
-		last_Login_Time = #{lastLoginTime,jdbcType=TIMESTAMP},
-		Regist_Time = #{registTime,jdbcType=TIMESTAMP},
-		Category_id = #{categoryId,jdbcType=INTEGER}
+		Address =
+		#{address,jdbcType=VARCHAR},
+		last_Login_Time =
+		#{lastLoginTime,jdbcType=TIMESTAMP},
+		Regist_Time =
+		#{registTime,jdbcType=TIMESTAMP},
+		Category_id =
+		#{categoryId,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 
 	<select id="selectUserCategory" parameterType="java.lang.Integer"
 		resultType="com.bkybk.model.UserCategory">
-		SELECT id,uid,cid FROM usercategory where usercategory.uid =
+		SELECT id,uid,cid FROM usercategory where usercategory.uid
+		=
 		#{id,jdbcType=INTEGER}
 	</select>
 	<resultMap type="com.bkybk.model.User" id="userResultMap"
@@ -217,9 +231,11 @@
 			select="selectUserCategory" />
 	</resultMap>
 	<select id="getAll" resultMap="BaseResultMap">
-		select id, Login_name, password, name, Email, Phone, Address,
+		select id, Login_name, password,
+		name, Email, Phone, Address,
 		last_Login_Time, Regist_Time,
-		Category_id from user
+		Category_id
+		from user
 	</select>
 
 	<resultMap type="com.bkybk.model.User" id="userResultMap2"
@@ -281,12 +297,15 @@
 		usercategory.id usercate_id,
 		usercategory.uid user_id,
 		usercategory.cid cate_id,
-		ucategory.id ucategory_id,
+		ucategory.id
+		ucategory_id,
 		ucategory.`name` ucategory_name,
-		ucategory.description ucategory_description
+		ucategory.description
+		ucategory_description
 		FROM
 		`user`
-		JOIN usercategory ON `user`.id = usercategory.uid
+		JOIN usercategory ON `user`.id =
+		usercategory.uid
 		JOIN ucategory ON usercategory.cid = ucategory.id
 
 	</select>
@@ -317,10 +336,12 @@
 		usercategory.cid ,
 		ucategory.id ucategory_id,
 		ucategory.`name` ucategory_name,
-		ucategory.description ucategory_description
+		ucategory.description
+		ucategory_description
 		FROM
 		`user`
-		JOIN usercategory ON `user`.id = usercategory.uid
+		JOIN usercategory ON `user`.id =
+		usercategory.uid
 		JOIN ucategory ON usercategory.cid = ucategory.id
 
 	</select>
@@ -348,10 +369,12 @@
 		usercategory.cid ,
 		ucategory.id ucategory_id,
 		ucategory.`name` ucategory_name,
-		ucategory.description ucategory_description
+		ucategory.description
+		ucategory_description
 		FROM
 		`user`
-		JOIN usercategory ON `user`.id = usercategory.uid
+		JOIN usercategory ON `user`.id =
+		usercategory.uid
 		JOIN ucategory ON usercategory.cid = ucategory.id
 
 	</select>
@@ -380,10 +403,12 @@
 		usercategory.cid ,
 		ucategory.id ucategory_id,
 		ucategory.`name` ucategory_name,
-		ucategory.description ucategory_description
+		ucategory.description
+		ucategory_description
 		FROM
 		`user`
-		JOIN usercategory ON `user`.id = usercategory.uid
+		JOIN usercategory ON `user`.id =
+		usercategory.uid
 		JOIN ucategory ON usercategory.cid = ucategory.id
 		<include refid="Example_Where_Clause" />
 		<if test="sort != null">
@@ -415,6 +440,7 @@
 		<include refid="Base_Column_List" />
 		from user
 		where Login_name = #{loginName,jdbcType=VARCHAR} and
-		password = #{password,jdbcType=VARCHAR}
+		password
+		= #{password,jdbcType=VARCHAR}
 	</select>
 </mapper>

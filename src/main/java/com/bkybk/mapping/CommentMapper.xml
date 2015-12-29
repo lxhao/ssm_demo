@@ -72,7 +72,7 @@
 		`user`.id = content.userid;
 	</select>
 
-	<!--插入评论 ,评论Id自增，时间自动获取-->
+	<!--插入评论 ,评论Id自增，时间自动获取 -->
 	<insert id="saveContent" parameterType="com.bkybk.model.Comment">
 		INSERT into content
 		(userid, articleid, content)
@@ -86,7 +86,7 @@
 	<update id="updateComment" parameterType="com.bkybk.model.Comment">
 		UPDATE content
 		set
-		content=#{contents,	 jdbcType=VARCHAR}
+		content=#{contents, jdbcType=VARCHAR}
 		where
 		content.commentid =
 		#{commentId,jdbcType=INTEGER};

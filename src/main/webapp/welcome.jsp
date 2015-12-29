@@ -9,7 +9,8 @@
 </head>
 <body>
 	<form action="ArticlesAction!publishArticle.do" method="post">
-		<input type="hidden" name="userId" value="<s:property value="user.id"/>">
+		<input type="hidden" name="userId"
+			value="<s:property value="user.id"/>">
 		<table border="1">
 			<tr>
 				<td>文章标题</td>

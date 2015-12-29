@@ -3,9 +3,10 @@
 	pageEncoding="UTF-8"%>
 
 
-Hello <input type="text" name="owner" value="${sessionScope.user.name}"/>
+Hello
+<input type="text" name="owner" value="${sessionScope.user.name}" />
 
 <%
 User user = (User)session.getAttribute("user");
-%> 
+%>
 ${sessionScope.user.username}

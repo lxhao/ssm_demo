@@ -27,7 +27,7 @@
 
 <body onload="Load('login.jsp')">
 	账户密码错误!
-	<a href="./login.jsp" >请重新登陆。</a>
+	<a href="./login.jsp">请重新登陆。</a>
 	<div id="ShowDiv"></div>
 </body>
 </html>
