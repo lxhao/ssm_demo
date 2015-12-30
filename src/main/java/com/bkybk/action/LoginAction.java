@@ -39,6 +39,7 @@ public class LoginAction extends BaseAction {
 			user = new User();
 			getParams(user);
 			user = userService.getUser(user);
+
 			j.setSuccess(true);
 			j.setMsg("OK");
 			j.setObj(user);
