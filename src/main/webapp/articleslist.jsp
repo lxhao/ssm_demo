@@ -90,3 +90,6 @@
 	<a href="javascript:none;" onclick="oLastPage('最后一页');">最后一页</a>
 	<a href="http://localhost:8080/s2sm/">返回首页</a>
 </html>
+
+</html>
+>>>>>>> branch 'master' of https://git.oschina.net/rayleigh/Demo.git
